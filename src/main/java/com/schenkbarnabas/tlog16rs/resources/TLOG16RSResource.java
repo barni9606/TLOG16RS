@@ -1,12 +1,14 @@
 package com.schenkbarnabas.tlog16rs.resources;
 
-import com.schenkbarnabas.tlog16rs.core.beans.TimeLogger;
-import com.schenkbarnabas.tlog16rs.core.beans.WorkMonth;
-import com.schenkbarnabas.tlog16rs.core.beans.WorkMonthRB;
-import com.schenkbarnabas.tlog16rs.core.exceptions.NotNewMonthException;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.schenkbarnabas.tlog16rs.core.beans.*;
+import com.schenkbarnabas.tlog16rs.core.exceptions.*;
+import io.dropwizard.jackson.Jackson;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Path("/timelogger")
@@ -52,5 +54,41 @@ public class TLOG16RSResource {
         }
         return workMonth;
     }
+
+    @Path("/workmonths/workdays")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public WorkDay addNewWorkDay(WorkDayRB day){
+        WorkDay workDay = null;
+        try {
+            workDay = new WorkDay(day.getRequiredHours(), LocalDate.of(day.getYear(), day.getMonth(), day.getDay()));
+            timeLogger.addDay(workDay);
+
+        } catch (NegativeMinutesOfWorkException | WeekendNotEnabledException | NotNewDateException | NotTheSameMonthException | FutureWorkException e) {
+            e.printStackTrace();
+        }
+        return workDay;
+    }
+
+    @Path("/workmonths/workdays/tasks/start")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Task startNewTask(StartTaskRB startTaskRB) throws EmptyTimeFieldException, NotExpectedTimeOrderException, NoTaskIdException, InvalidTaskIdException {
+        Task task = null;
+        try {
+            task = new Task(startTaskRB.getTaskId());
+            task.setStartTime(startTaskRB.getStartTime());
+            task.setComment(startTaskRB.getComment());
+            LocalDate localDate = LocalDate.of(startTaskRB.getYear(), startTaskRB.getMonth(), startTaskRB.getDay());
+            timeLogger.startTask(task, localDate);
+        } catch (InvalidTaskIdException | NoTaskIdException | NotExpectedTimeOrderException
+                | NotSeparatedTimesException | FutureWorkException | WeekendNotEnabledException | EmptyTimeFieldException e) {
+            e.printStackTrace();
+        }
+        return task;
+    }
+
     
 }

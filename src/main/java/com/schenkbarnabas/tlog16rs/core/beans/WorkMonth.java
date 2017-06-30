@@ -13,6 +13,7 @@ import java.util.List;
  * This class consists of the days of a month
  * Created by bschenk on 6/27/17.
  */
+@lombok.EqualsAndHashCode(of = "date")
 public class WorkMonth {
     /**
      * Days

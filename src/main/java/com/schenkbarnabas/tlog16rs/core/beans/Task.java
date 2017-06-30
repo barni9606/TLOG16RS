@@ -1,5 +1,7 @@
 package com.schenkbarnabas.tlog16rs.core.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.schenkbarnabas.tlog16rs.core.exceptions.EmptyTimeFieldException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.InvalidTaskIdException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NoTaskIdException;
@@ -14,6 +16,8 @@ import java.util.regex.Pattern;
  * An object of this class represents a redmine or LT task
  * Created by bschenk on 6/27/17.
  */
+@lombok.EqualsAndHashCode(of = "taskId")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Task {
     /**
      * ID of the task
@@ -181,7 +185,7 @@ public class Task {
      * @throws EmptyTimeFieldException if endTime is null
      */
     public LocalTime getEndTime() throws EmptyTimeFieldException {
-        if(startTime == null){
+        if(endTime == null){
             throw new EmptyTimeFieldException();
         }
         return endTime;

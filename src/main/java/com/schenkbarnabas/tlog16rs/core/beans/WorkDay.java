@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * Created by bschenk on 6/27/17.
  */
+@lombok.EqualsAndHashCode(of = "actualDay")
 public class WorkDay {
     /**
      * Tasks of the day
