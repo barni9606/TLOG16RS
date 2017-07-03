@@ -118,11 +118,7 @@ public class WorkDay {
     public long getSumPerDay() throws EmptyTimeFieldException {
         sumPerDay = 0;
         for(Task task : tasks){
-            try {
-                sumPerDay += task.getMinPerTask();
-            } catch (EmptyTimeFieldException e) {
-                throw e;
-            }
+            sumPerDay += task.getMinPerTask();
         }
         return sumPerDay;
     }

@@ -16,8 +16,7 @@ import java.util.regex.Pattern;
  * An object of this class represents a redmine or LT task
  * Created by bschenk on 6/27/17.
  */
-@lombok.EqualsAndHashCode(of = "taskId")
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
+@lombok.EqualsAndHashCode(of = {"taskId", "startTime"}, doNotUseGetters = true)
 public class Task {
     /**
      * ID of the task
@@ -219,6 +218,8 @@ public class Task {
                 throw new NotExpectedTimeOrderException();
             }
             endTime = Util.roundToMultipleQuarterHour(this.startTime, endTime);
+        } else {
+            endTime = LocalTime.of(startTime.getHour(), startTime.getMinute());
         }
     }
 

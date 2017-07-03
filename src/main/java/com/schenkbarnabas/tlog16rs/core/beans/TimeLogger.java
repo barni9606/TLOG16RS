@@ -1,6 +1,7 @@
 package com.schenkbarnabas.tlog16rs.core.beans;
 
 import com.schenkbarnabas.tlog16rs.core.exceptions.*;
+import io.dropwizard.servlets.tasks.TaskServlet;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -53,7 +54,8 @@ public class TimeLogger {
         }
     }
 
-    public void startTask(Task task, LocalDate localDate) throws EmptyTimeFieldException, FutureWorkException, NotExpectedTimeOrderException, NotSeparatedTimesException, WeekendNotEnabledException {
+    public void startTask(Task task, LocalDate localDate) throws EmptyTimeFieldException, FutureWorkException,
+            NotExpectedTimeOrderException, NotSeparatedTimesException, WeekendNotEnabledException {
         if(months.contains(new WorkMonth(localDate.getYear(), localDate.getMonthValue()))) {
             WorkMonth workMonth = months.stream().filter(month ->
                     month.getDate().equals(YearMonth.of(localDate.getYear(), localDate.getMonthValue()))).findFirst().get();
@@ -75,8 +77,6 @@ public class TimeLogger {
                 e.printStackTrace();
             }
 
-
-
         } else {
             try {
                 WorkDay workDay = new WorkDay(localDate);
@@ -90,5 +90,93 @@ public class TimeLogger {
                 e.printStackTrace();
             }
         }
+    }
+
+    public WorkMonth getMonth(String yearString, String monthString) {
+        int year = Integer.valueOf(yearString);
+        int month = Integer.valueOf(monthString);
+        WorkMonth m = new WorkMonth(year, month);
+        WorkMonth workMonth = null;
+        if(months.contains(m)){
+            workMonth = months.stream().filter(wm -> wm.equals(m)).findFirst().get();
+        } else {
+            workMonth = m;
+            try {
+                addMonth(workMonth);
+            } catch (NotNewMonthException e) {
+                e.printStackTrace();
+            }
+        }
+        return workMonth;
+
+    }
+
+    public WorkDay getDay(String yearString, String monthString, String dayString) throws NegativeMinutesOfWorkException,
+            FutureWorkException {
+        WorkMonth workMonth = getMonth(yearString, monthString);
+        int year = Integer.valueOf(yearString);
+        int month = Integer.valueOf(monthString);
+        int day = Integer.valueOf(dayString);
+        WorkDay d = new WorkDay(LocalDate.of(year, month, day));
+        WorkDay workDay;
+        if(workMonth.getDays().contains(d)){
+            workDay = workMonth.getDays().stream().filter(wd -> wd.equals(d)).findFirst().get();
+        } else {
+            workDay = d;
+            try {
+                workMonth.addWorkDay(workDay);
+            } catch (WeekendNotEnabledException e) {
+                e.printStackTrace();
+            } catch (NotTheSameMonthException e) {
+                e.printStackTrace();
+            } catch (NotNewDateException e) {
+                e.printStackTrace();
+            }
+        }
+        return workDay;
+    }
+
+    public Task finishTask(Task tempTask, FinishingTaskRB finishingTaskRB) throws NegativeMinutesOfWorkException,
+            FutureWorkException, EmptyTimeFieldException, NotExpectedTimeOrderException, NoTaskIdException, InvalidTaskIdException, NotSeparatedTimesException {
+        WorkDay workDay = getDay(String.valueOf(finishingTaskRB.getYear()), String.valueOf(finishingTaskRB.getMonth()), String.valueOf(finishingTaskRB.getDay()));
+        Task task;
+        if(workDay.getTasks().contains(tempTask)){
+            task = workDay.getTasks().stream().filter(t -> t.equals(tempTask)).findFirst().get();
+            task.setEndTime(tempTask.getEndTime());
+        } else {
+            task = new Task(tempTask.getTaskId());
+            task.setStartTime(tempTask.getStartTime());
+            task.setEndTime(tempTask.getEndTime());
+            workDay.addTask(task);
+        }
+        return task;
+    }
+
+    public Task modifyTask(Task tempTask, ModifyTaskRB modifyTaskRB) throws NegativeMinutesOfWorkException,
+            FutureWorkException, NotExpectedTimeOrderException, InvalidTaskIdException, NoTaskIdException, NotSeparatedTimesException {
+        WorkDay workDay = getDay(String.valueOf(modifyTaskRB.getYear()), String.valueOf(modifyTaskRB.getMonth()), String.valueOf(modifyTaskRB.getDay()));
+        Task task;
+        if(workDay.getTasks().contains(tempTask)){
+            task = workDay.getTasks().stream().filter(t -> t.equals(tempTask)).findFirst().get();
+            task.setTaskId(modifyTaskRB.getNewTaskId());
+            task.setStartTime(modifyTaskRB.getNewStartTime());
+            task.setEndTime(modifyTaskRB.getNewEndTime());
+        } else {
+            task = new Task(modifyTaskRB.getNewTaskId());
+            task.setStartTime(modifyTaskRB.getNewStartTime());
+            task.setEndTime(modifyTaskRB.getNewEndTime());
+            workDay.addTask(task);
+        }
+        task.setComment(modifyTaskRB.getNewComment());
+        return task;
+    }
+
+    public Task deleteTask(Task tempTask, DeleteTaskRB deleteTaskRB) throws NegativeMinutesOfWorkException, FutureWorkException {
+        WorkDay workDay = getDay(String.valueOf(deleteTaskRB.getYear()), String.valueOf(deleteTaskRB.getMonth()), String.valueOf(deleteTaskRB.getDay()));
+        if(workDay.getTasks().contains(tempTask)){
+            Task task = workDay.getTasks().stream().filter(t -> t.equals(tempTask)).findFirst().get();
+            workDay.getTasks().remove(task);
+        }
+        return null;
     }
 }
