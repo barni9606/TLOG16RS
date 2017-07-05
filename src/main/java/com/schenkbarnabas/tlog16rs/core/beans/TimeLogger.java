@@ -6,6 +6,7 @@ import io.dropwizard.servlets.tasks.TaskServlet;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class TimeLogger {
     public void addDay(WorkDay workDay) throws WeekendNotEnabledException, NotTheSameMonthException, NotNewDateException {
         if(months.contains(new WorkMonth(workDay.getActualDay().getYear(), workDay.getActualDay().getMonthValue()))){
             WorkMonth workMonth = months.stream().filter(month ->
-                    month.getDate().equals(YearMonth.of(workDay.getActualDay().getYear(), workDay.getActualDay().getMonthValue()))).findFirst().get();
+                    month.equals(new WorkMonth(workDay.getActualDay().getYear(), workDay.getActualDay().getMonthValue()))).findFirst().get();
             workMonth.addWorkDay(workDay);
         } else {
             WorkMonth workMonth = new WorkMonth(workDay.getActualDay().getYear(), workDay.getActualDay().getMonthValue());
@@ -58,7 +59,7 @@ public class TimeLogger {
             NotExpectedTimeOrderException, NotSeparatedTimesException, WeekendNotEnabledException {
         if(months.contains(new WorkMonth(localDate.getYear(), localDate.getMonthValue()))) {
             WorkMonth workMonth = months.stream().filter(month ->
-                    month.getDate().equals(YearMonth.of(localDate.getYear(), localDate.getMonthValue()))).findFirst().get();
+                    month.equals(new WorkMonth(localDate.getYear(), localDate.getMonthValue()))).findFirst().get();
             try {
                 if(workMonth.getDays().contains(new WorkDay(localDate))){
 
@@ -144,9 +145,7 @@ public class TimeLogger {
             task = workDay.getTasks().stream().filter(t -> t.equals(tempTask)).findFirst().get();
             task.setEndTime(tempTask.getEndTime());
         } else {
-            task = new Task(tempTask.getTaskId());
-            task.setStartTime(tempTask.getStartTime());
-            task.setEndTime(tempTask.getEndTime());
+            task = tempTask;
             workDay.addTask(task);
         }
         return task;
@@ -159,24 +158,36 @@ public class TimeLogger {
         if(workDay.getTasks().contains(tempTask)){
             task = workDay.getTasks().stream().filter(t -> t.equals(tempTask)).findFirst().get();
             task.setTaskId(modifyTaskRB.getNewTaskId());
-            task.setStartTime(modifyTaskRB.getNewStartTime());
-            task.setEndTime(modifyTaskRB.getNewEndTime());
+            try {
+                if(LocalTime.parse(modifyTaskRB.getNewStartTime(), DateTimeFormatter.ofPattern("H:m")).isAfter(task.getEndTime())){
+                    task.setEndTime(modifyTaskRB.getNewEndTime());
+                    task.setStartTime(modifyTaskRB.getNewStartTime());
+                } else {
+                    task.setStartTime(modifyTaskRB.getNewStartTime());
+                    task.setEndTime(modifyTaskRB.getNewEndTime());
+
+                }
+            } catch (EmptyTimeFieldException e) {
+                e.printStackTrace();
+            }
+            task.setComment(modifyTaskRB.getNewComment());
         } else {
             task = new Task(modifyTaskRB.getNewTaskId());
             task.setStartTime(modifyTaskRB.getNewStartTime());
             task.setEndTime(modifyTaskRB.getNewEndTime());
+            task.setComment(modifyTaskRB.getNewComment());
             workDay.addTask(task);
         }
-        task.setComment(modifyTaskRB.getNewComment());
         return task;
     }
 
     public Task deleteTask(Task tempTask, DeleteTaskRB deleteTaskRB) throws NegativeMinutesOfWorkException, FutureWorkException {
         WorkDay workDay = getDay(String.valueOf(deleteTaskRB.getYear()), String.valueOf(deleteTaskRB.getMonth()), String.valueOf(deleteTaskRB.getDay()));
+        Task task = null;
         if(workDay.getTasks().contains(tempTask)){
-            Task task = workDay.getTasks().stream().filter(t -> t.equals(tempTask)).findFirst().get();
+            task = workDay.getTasks().stream().filter(t -> t.equals(tempTask)).findFirst().get();
             workDay.getTasks().remove(task);
         }
-        return null;
+        return task;
     }
 }

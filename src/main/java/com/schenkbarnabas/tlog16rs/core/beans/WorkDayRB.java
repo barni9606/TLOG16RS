@@ -10,5 +10,5 @@ public class WorkDayRB {
     private int year;
     private int month;
     private int day;
-    private int requiredHours;
+    private double requiredHours;
 }

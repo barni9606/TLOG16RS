@@ -133,7 +133,7 @@ public class WorkMonth {
         return requiredMinPerMonth;
     }
 
-    protected YearMonth getDate() {
-        return date;
+    public String getDate() {
+        return date.getYear() + "-" + (date.getMonthValue() < 10 ? "0" : "") + date.getMonthValue();
     }
 }

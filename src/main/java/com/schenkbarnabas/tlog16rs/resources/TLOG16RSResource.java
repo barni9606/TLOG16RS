@@ -1,15 +1,14 @@
 package com.schenkbarnabas.tlog16rs.resources;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.avaje.ebean.Ebean;
 import com.schenkbarnabas.tlog16rs.core.beans.*;
+import com.schenkbarnabas.tlog16rs.entities.TestEntity;
 import com.schenkbarnabas.tlog16rs.core.exceptions.*;
-import io.dropwizard.jackson.Jackson;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 @Slf4j
@@ -64,7 +63,7 @@ public class TLOG16RSResource {
     public WorkDay addNewWorkDay(WorkDayRB day){
         WorkDay workDay = null;
         try {
-            workDay = new WorkDay(day.getRequiredHours(), LocalDate.of(day.getYear(), day.getMonth(), day.getDay()));
+            workDay = new WorkDay(Math.round(day.getRequiredHours() * 60), LocalDate.of(day.getYear(), day.getMonth(), day.getDay()));
             timeLogger.addDay(workDay);
 
         } catch (NegativeMinutesOfWorkException | WeekendNotEnabledException | NotNewDateException
@@ -90,7 +89,6 @@ public class TLOG16RSResource {
         } catch (InvalidTaskIdException | NoTaskIdException | NotExpectedTimeOrderException
                 | NotSeparatedTimesException | FutureWorkException
                 | WeekendNotEnabledException | EmptyTimeFieldException e) {
-            e.printStackTrace();
             log.error(e.getClass().toString() + ": " +  e.getMessage());
             log.info("asd");
         }
@@ -125,7 +123,7 @@ public class TLOG16RSResource {
         Task task = null;
         try {
             task = new Task(finishingTaskRB.getTaskId(), finishingTaskRB.getStartTime(), finishingTaskRB.getEndTime(), "");
-            timeLogger.finishTask(task, finishingTaskRB);
+            task = timeLogger.finishTask(task, finishingTaskRB);
         } catch (NotExpectedTimeOrderException | FutureWorkException | NotSeparatedTimesException |
                 NegativeMinutesOfWorkException | EmptyTimeFieldException | NoTaskIdException | InvalidTaskIdException e) {
             log.error(e.getClass().toString() + ": " +  e.getMessage());
@@ -142,6 +140,8 @@ public class TLOG16RSResource {
         try {
             Task tempTask = new Task(modifyTaskRB.getTaskId());
             tempTask.setStartTime(modifyTaskRB.getStartTime());
+            tempTask.setEndTime(modifyTaskRB.getNewEndTime());
+            tempTask.setComment(modifyTaskRB.getNewComment());
             task = timeLogger.modifyTask(tempTask, modifyTaskRB);
         } catch (InvalidTaskIdException | FutureWorkException | NotSeparatedTimesException |
                 NegativeMinutesOfWorkException | NotExpectedTimeOrderException | NoTaskIdException e) {
@@ -159,12 +159,29 @@ public class TLOG16RSResource {
         try {
             task = new Task(deleteTaskRB.getTaskId());
             task.setStartTime(deleteTaskRB.getStartTime());
-            timeLogger.deleteTask(task, deleteTaskRB);
+            task = timeLogger.deleteTask(task, deleteTaskRB);
         } catch (InvalidTaskIdException | NegativeMinutesOfWorkException | FutureWorkException |
                 NotExpectedTimeOrderException | NoTaskIdException e) {
             log.error(e.getClass().toString() + ": " +  e.getMessage());
         }
         return task;
+    }
+
+    @Path("/workmonths/deleteall")
+    @PUT
+    public void deleteAll(){
+        timeLogger = new TimeLogger();
+    }
+
+    @Path("/save/test")
+    @POST
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String testString(String testString){
+        TestEntity testEntity = new TestEntity();
+        testEntity.setText(testString);
+        Ebean.save(testEntity);
+        return ((TestEntity)Ebean.find(TestEntity.class, testEntity.getId())).getText();
     }
 
 }

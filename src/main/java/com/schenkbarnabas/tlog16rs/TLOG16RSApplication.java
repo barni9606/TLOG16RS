@@ -1,5 +1,6 @@
 package com.schenkbarnabas.tlog16rs;
 
+import com.schenkbarnabas.tlog16rs.core.beans.CreateDatabase;
 import com.schenkbarnabas.tlog16rs.resources.TLOG16RSResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -24,6 +25,7 @@ public class TLOG16RSApplication extends Application<TLOG16RSConfiguration> {
     @Override
     public void run(final TLOG16RSConfiguration configuration,
                     final Environment environment) {
+        CreateDatabase createDatabase = new CreateDatabase();
         environment.jersey().register(new TLOG16RSResource());
     }
 
