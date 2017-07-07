@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="1" author="bschenk">
+        <createTable tableName="time_logger">
+            <column name="id" autoIncrement="true" type="int">
+                <constraints primaryKey="true" nullable="false" unique="true"/>
+
+            </column>
+        </createTable>
+        <createTable tableName="work_month">
+            <column name="id" autoIncrement="true" type="int">
+                <constraints primaryKey="true" nullable="false" unique="true" />
+            </column>
+            <column name="time_logger_id" type="int">
+                <constraints nullable="false" />
+            </column>
+            <column name="sum_per_month" type="int" />
+            <column name="required_min_per_month" type="int">
+                <constraints nullable="false" />
+            </column>
+            <column name="extra_min_per_month" type="int" />
+            <column name="date" type="varchar(8)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <createTable tableName="work_day">
+            <column name="id" autoIncrement="true" type="int">
+                <constraints primaryKey="true" nullable="false" unique="true" />
+            </column>
+            <column name="work_month_id" type="int">
+                <constraints nullable="false" />
+            </column>
+            <column name="required_min_per_day" type="int">
+                <constraints nullable="false" />
+            </column>
+            <column name="extra_min_per_day" type="int" />
+            <column name="actual_day" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="sum_per_day" type="int" />
+        </createTable>
+        <createTable tableName="task">
+            <column name="id" autoIncrement="true" type="int">
+                <constraints primaryKey="true" nullable="false" unique="true" />
+            </column>
+            <column name="work_day_id" type="int">
+                <constraints nullable="false" />
+            </column>
+            <column name="task_id" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="start_time" type="time">
+                <constraints nullable="false" />
+            </column>
+            <column name="end_time" type="time">
+                <constraints nullable="false" />
+            </column>
+            <column name="comment" type="varchar(255)" />
+            <column name="min_per_task" type="int" />
+        </createTable>
+        <addForeignKeyConstraint baseTableName="work_month" baseColumnNames="time_logger_id"
+                                 constraintName="time_logger_work_month_constraint"
+                                 referencedTableName="time_logger"
+                                 referencedColumnNames="id" onDelete="RESTRICT" onUpdate="RESTRICT"/>
+        <addForeignKeyConstraint baseTableName="work_day" baseColumnNames="work_month_id"
+                                 constraintName="work_month_work_day_constraint"
+                                 referencedTableName="work_month"
+                                 referencedColumnNames="id" onDelete="RESTRICT" onUpdate="RESTRICT"/>
+        <addForeignKeyConstraint baseTableName="task" baseColumnNames="work_day_id"
+                                 constraintName="task_work_day_constraint"
+                                 referencedTableName="work_day"
+                                 referencedColumnNames="id" onDelete="RESTRICT" onUpdate="RESTRICT"/>
+        <createIndex tableName="task" indexName="ix_task_work_day_id">
+            <column name="work_day_id" type="int"/>
+        </createIndex>
+        <createIndex tableName="work_day" indexName="ix_work_day_work_month_id">
+            <column name="work_month_id" type="int"/>
+        </createIndex>
+        <createIndex tableName="work_month" indexName="ix_work_month_time_logger_id">
+            <column name="time_logger_id" type="int"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

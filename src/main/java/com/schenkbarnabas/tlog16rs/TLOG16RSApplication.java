@@ -5,6 +5,9 @@ import com.schenkbarnabas.tlog16rs.resources.TLOG16RSResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import liquibase.exception.LiquibaseException;
+
+import java.sql.SQLException;
 
 public class TLOG16RSApplication extends Application<TLOG16RSConfiguration> {
 
@@ -24,8 +27,8 @@ public class TLOG16RSApplication extends Application<TLOG16RSConfiguration> {
 
     @Override
     public void run(final TLOG16RSConfiguration configuration,
-                    final Environment environment) {
-        CreateDatabase createDatabase = new CreateDatabase();
+                    final Environment environment) throws SQLException, LiquibaseException {
+        CreateDatabase createDatabase = new CreateDatabase(configuration);
         environment.jersey().register(new TLOG16RSResource());
     }
 

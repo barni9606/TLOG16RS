@@ -1,5 +1,6 @@
 package com.schenkbarnabas.tlog16rs.core.beans;
 
+import com.schenkbarnabas.tlog16rs.entities.Task;
 import com.schenkbarnabas.tlog16rs.core.exceptions.EmptyTimeFieldException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NotExpectedTimeOrderException;
 

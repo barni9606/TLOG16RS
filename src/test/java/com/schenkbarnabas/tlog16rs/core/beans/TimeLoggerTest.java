@@ -1,12 +1,14 @@
 package com.schenkbarnabas.tlog16rs.core.beans;
 
+import com.schenkbarnabas.tlog16rs.entities.Task;
+import com.schenkbarnabas.tlog16rs.entities.TimeLogger;
+import com.schenkbarnabas.tlog16rs.entities.WorkDay;
+import com.schenkbarnabas.tlog16rs.entities.WorkMonth;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NotNewMonthException;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by bschenk on 6/29/17.

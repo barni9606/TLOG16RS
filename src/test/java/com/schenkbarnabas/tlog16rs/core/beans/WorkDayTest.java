@@ -1,5 +1,7 @@
 package com.schenkbarnabas.tlog16rs.core.beans;
 
+import com.schenkbarnabas.tlog16rs.entities.Task;
+import com.schenkbarnabas.tlog16rs.entities.WorkDay;
 import com.schenkbarnabas.tlog16rs.core.exceptions.EmptyTimeFieldException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.FutureWorkException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NegativeMinutesOfWorkException;
@@ -9,8 +11,6 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by bschenk on 6/28/17.

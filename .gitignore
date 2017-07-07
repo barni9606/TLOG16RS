@@ -6,3 +6,5 @@ build/
 gradle/
 gradlew*
 *.log
+*.sql
+database/

@@ -1,0 +1,5 @@
+dbUrl: jdbc:mariadb://127.0.0.1:9001/timelogger
+dbConfigName: timelogger
+dbUsername: timelogger
+dbPassword: 633Ym2aZ5b9Wtzh4EJc4pANx
+dbDriver: org.mariadb.jdbc.Driver

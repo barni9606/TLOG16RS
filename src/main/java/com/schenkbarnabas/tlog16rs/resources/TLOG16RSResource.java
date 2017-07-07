@@ -2,8 +2,12 @@ package com.schenkbarnabas.tlog16rs.resources;
 
 import com.avaje.ebean.Ebean;
 import com.schenkbarnabas.tlog16rs.core.beans.*;
-import com.schenkbarnabas.tlog16rs.entities.TestEntity;
+import com.schenkbarnabas.tlog16rs.entities.Task;
+import com.schenkbarnabas.tlog16rs.entities.TimeLogger;
+import com.schenkbarnabas.tlog16rs.entities.WorkDay;
+import com.schenkbarnabas.tlog16rs.entities.WorkMonth;
 import com.schenkbarnabas.tlog16rs.core.exceptions.*;
+import com.schenkbarnabas.tlog16rs.resources.services.TLOG16RSService;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.ws.rs.*;
@@ -14,31 +18,14 @@ import java.util.List;
 @Slf4j
 @Path("/timelogger")
 public class TLOG16RSResource {
-    private TimeLogger timeLogger = new TimeLogger();
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getGreeting() {
-        return "Hello world!";
-    }
 
-    @Path("/{name}")
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getNamedGreeting(@PathParam(value = "name") String name) {
-        return "Hello " + name;
-    }
-
-    @Path("/query_param")
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getNamedStringWithParam(@DefaultValue("world") @QueryParam("name") String name) {
-        return "Hello " + name;
-    }
+    private TLOG16RSService service = new TLOG16RSService();
 
     @Path("/workmonths")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<WorkMonth> getJSONWorkMonths(){
+        TimeLogger timeLogger = service.getTimeLogger();
         return timeLogger.getMonths();
     }
 
@@ -47,10 +34,11 @@ public class TLOG16RSResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public WorkMonth addNewWorkMonth(WorkMonthRB month){
+        TimeLogger timeLogger = service.getTimeLogger();
         WorkMonth workMonth = new WorkMonth(month.getYear(), month.getMonth());
         try {
-            timeLogger.addMonth(workMonth);
-        } catch (NotNewMonthException e) {
+            service.addMonth(timeLogger, workMonth);
+        } catch (NotNewMonthException | EmptyTimeFieldException e) {
             log.error(e.getClass().toString() + ": " +  e.getMessage());
         }
         return workMonth;
@@ -61,10 +49,11 @@ public class TLOG16RSResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public WorkDay addNewWorkDay(WorkDayRB day){
+        TimeLogger timeLogger = service.getTimeLogger();
         WorkDay workDay = null;
         try {
             workDay = new WorkDay(Math.round(day.getRequiredHours() * 60), LocalDate.of(day.getYear(), day.getMonth(), day.getDay()));
-            timeLogger.addDay(workDay);
+            service.addDay(timeLogger, workDay);
 
         } catch (NegativeMinutesOfWorkException | WeekendNotEnabledException | NotNewDateException
                 | NotTheSameMonthException | FutureWorkException e) {
@@ -79,13 +68,14 @@ public class TLOG16RSResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Task startNewTask(StartTaskRB startTaskRB) throws EmptyTimeFieldException, NotExpectedTimeOrderException,
             NoTaskIdException, InvalidTaskIdException {
+        TimeLogger timeLogger = service.getTimeLogger();
         Task task = null;
         try {
             task = new Task(startTaskRB.getTaskId());
             task.setStartTime(startTaskRB.getStartTime());
             task.setComment(startTaskRB.getComment());
             LocalDate localDate = LocalDate.of(startTaskRB.getYear(), startTaskRB.getMonth(), startTaskRB.getDay());
-            timeLogger.startTask(task, localDate);
+            service.startTask(timeLogger, task, localDate);
         } catch (InvalidTaskIdException | NoTaskIdException | NotExpectedTimeOrderException
                 | NotSeparatedTimesException | FutureWorkException
                 | WeekendNotEnabledException | EmptyTimeFieldException e) {
@@ -99,16 +89,18 @@ public class TLOG16RSResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<WorkDay> getJSONDaysOfWorkMonth(@PathParam(value = "year") String year, @PathParam(value = "month") String month){
-        return timeLogger.getMonth(year, month).getDays();
+        TimeLogger timeLogger = service.getTimeLogger();
+        return service.getMonth(timeLogger, year, month).getDays();
     }
 
     @Path("/workmonths/{year}/{month}/{day}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Task> getJSONTasksOfWorkDay(@PathParam(value = "year") String year, @PathParam(value = "month") String month,@PathParam(value = "day") String day){
+        TimeLogger timeLogger = service.getTimeLogger();
         List<Task> tasks = null;
         try {
-             tasks = timeLogger.getDay(year, month, day).getTasks();
+             tasks = service.getDay(timeLogger, year, month, day).getTasks();
         } catch (NegativeMinutesOfWorkException | FutureWorkException e) {
             log.error(e.getClass().toString() + ": " +  e.getMessage());
         }
@@ -120,10 +112,11 @@ public class TLOG16RSResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Task finishTask(FinishingTaskRB finishingTaskRB){
+        TimeLogger timeLogger = service.getTimeLogger();
         Task task = null;
         try {
             task = new Task(finishingTaskRB.getTaskId(), finishingTaskRB.getStartTime(), finishingTaskRB.getEndTime(), "");
-            task = timeLogger.finishTask(task, finishingTaskRB);
+            task = service.finishTask(timeLogger, task, finishingTaskRB);
         } catch (NotExpectedTimeOrderException | FutureWorkException | NotSeparatedTimesException |
                 NegativeMinutesOfWorkException | EmptyTimeFieldException | NoTaskIdException | InvalidTaskIdException e) {
             log.error(e.getClass().toString() + ": " +  e.getMessage());
@@ -136,15 +129,16 @@ public class TLOG16RSResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Task modifyTask(ModifyTaskRB modifyTaskRB){
+        TimeLogger timeLogger = service.getTimeLogger();
         Task task = null;
         try {
             Task tempTask = new Task(modifyTaskRB.getTaskId());
             tempTask.setStartTime(modifyTaskRB.getStartTime());
             tempTask.setEndTime(modifyTaskRB.getNewEndTime());
             tempTask.setComment(modifyTaskRB.getNewComment());
-            task = timeLogger.modifyTask(tempTask, modifyTaskRB);
+            task = service.modifyTask(timeLogger, tempTask, modifyTaskRB);
         } catch (InvalidTaskIdException | FutureWorkException | NotSeparatedTimesException |
-                NegativeMinutesOfWorkException | NotExpectedTimeOrderException | NoTaskIdException e) {
+                NegativeMinutesOfWorkException | NotExpectedTimeOrderException | NoTaskIdException | EmptyTimeFieldException e) {
             log.error(e.getClass().toString() + ": " +  e.getMessage());
         }
         return task;
@@ -155,13 +149,14 @@ public class TLOG16RSResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Task deleteTask(DeleteTaskRB deleteTaskRB){
+        TimeLogger timeLogger = service.getTimeLogger();
         Task task = null;
         try {
             task = new Task(deleteTaskRB.getTaskId());
             task.setStartTime(deleteTaskRB.getStartTime());
-            task = timeLogger.deleteTask(task, deleteTaskRB);
+            task = service.deleteTask(timeLogger, task, deleteTaskRB);
         } catch (InvalidTaskIdException | NegativeMinutesOfWorkException | FutureWorkException |
-                NotExpectedTimeOrderException | NoTaskIdException e) {
+                NotExpectedTimeOrderException | NoTaskIdException | EmptyTimeFieldException e) {
             log.error(e.getClass().toString() + ": " +  e.getMessage());
         }
         return task;
@@ -170,18 +165,9 @@ public class TLOG16RSResource {
     @Path("/workmonths/deleteall")
     @PUT
     public void deleteAll(){
+        TimeLogger timeLogger = service.getTimeLogger();
+        Ebean.deleteAll(Ebean.find(TimeLogger.class).findList());
         timeLogger = new TimeLogger();
-    }
-
-    @Path("/save/test")
-    @POST
-    @Consumes(MediaType.TEXT_PLAIN)
-    @Produces(MediaType.TEXT_PLAIN)
-    public String testString(String testString){
-        TestEntity testEntity = new TestEntity();
-        testEntity.setText(testString);
-        Ebean.save(testEntity);
-        return ((TestEntity)Ebean.find(TestEntity.class, testEntity.getId())).getText();
     }
 
 }

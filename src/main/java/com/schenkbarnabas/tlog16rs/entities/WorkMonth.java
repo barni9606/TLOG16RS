@@ -1,10 +1,12 @@
-package com.schenkbarnabas.tlog16rs.core.beans;
+package com.schenkbarnabas.tlog16rs.entities;
 
+import com.schenkbarnabas.tlog16rs.core.beans.Util;
 import com.schenkbarnabas.tlog16rs.core.exceptions.EmptyTimeFieldException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NotNewDateException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NotTheSameMonthException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.WeekendNotEnabledException;
 
+import javax.persistence.*;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,25 +15,65 @@ import java.util.List;
  * This class consists of the days of a month
  * Created by bschenk on 6/27/17.
  */
+@Entity
 @lombok.EqualsAndHashCode(of = "date")
 public class WorkMonth {
+
+
+    @Id
+    @GeneratedValue
+    private Integer id;
+
     /**
      * Days
      */
-    @lombok.Getter
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private List<WorkDay> days = new ArrayList<>();
+
     /**
      * The year and month
      */
+
+    @Transient
     private YearMonth date;
+
     /**
      * The sum of the time of tasks' in this month
      */
+
     private long sumPerMonth;
+
     /**
      * The sum of the time required per days in this month
      */
+
     private long requiredMinPerMonth;
+
+    private long extraMinPerMonth;
+    @Column(name = "date")
+    private String monthDate;
+
+    public String getDate(){
+        return monthDate;
+    }
+
+    public void setDate(YearMonth date) {
+        this.date = date;
+        this.monthDate = date.getYear() + "-" + (date.getMonthValue() < 10? "0": "") + date.getMonthValue();
+    }
+
+    public String getMonthDate() {
+        return monthDate;
+    }
+
+    public void setMonthDate(String monthDate) {
+        this.monthDate = monthDate;
+        this.date = YearMonth.parse(monthDate);
+    }
+
+    public void setExtraMinPerMonth(long extraMinPerMonth) {
+        this.extraMinPerMonth = extraMinPerMonth;
+    }
 
     /**
      * Constructor for year and month
@@ -39,8 +81,36 @@ public class WorkMonth {
      * @param month
      */
     public WorkMonth(int year, int month) {
+
         date = YearMonth.of(year, month);
+        monthDate = date.getYear() + "-" + (date.getMonthValue() < 10? "0": "") + date.getMonthValue();
     }
+
+    public void setSumPerMonth(long sumPerMonth) {
+        this.sumPerMonth = sumPerMonth;
+    }
+
+    public void setRequiredMinPerMonth(long requiredMinPerMonth) {
+        this.requiredMinPerMonth = requiredMinPerMonth;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public List<WorkDay> getDays() {
+        return days;
+    }
+
+    public void setDays(List<WorkDay> days) {
+        this.days = days;
+    }
+
+
 
     /**
      *
@@ -70,6 +140,7 @@ public class WorkMonth {
      * @return
      */
     public boolean isSameMonth(WorkDay wd) {
+        date = YearMonth.parse(monthDate);
         return date.getYear() == wd.getActualDay().getYear() && date.getMonth().equals(wd.getActualDay().getMonth());
     }
 
@@ -133,7 +204,4 @@ public class WorkMonth {
         return requiredMinPerMonth;
     }
 
-    public String getDate() {
-        return date.getYear() + "-" + (date.getMonthValue() < 10 ? "0" : "") + date.getMonthValue();
-    }
 }

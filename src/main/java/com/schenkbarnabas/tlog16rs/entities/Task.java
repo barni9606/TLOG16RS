@@ -1,32 +1,45 @@
-package com.schenkbarnabas.tlog16rs.core.beans;
+package com.schenkbarnabas.tlog16rs.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.schenkbarnabas.tlog16rs.core.beans.Util;
 import com.schenkbarnabas.tlog16rs.core.exceptions.EmptyTimeFieldException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.InvalidTaskIdException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NoTaskIdException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NotExpectedTimeOrderException;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * An object of this class represents a redmine or LT task
  * Created by bschenk on 6/27/17.
  */
+@Entity
 @lombok.EqualsAndHashCode(of = {"taskId", "startTime"}, doNotUseGetters = true)
 public class Task {
+    public Task() {
+    }
+
+
+    @Id
+    @GeneratedValue
+    int id;
+
     /**
      * ID of the task
      */
-    @lombok.Getter
     private String taskId;
+
     /**
      * When the task was started
      */
     private LocalTime startTime;
+
     /**
      * When the task was finished
      */
@@ -34,9 +47,9 @@ public class Task {
     /**
      * Comment
      */
-    @lombok.Getter
     private String comment;
 
+    private long minPerTask;
     /**
      * Constructor for every field with ints
      * @param taskId ID of the task
@@ -107,6 +120,23 @@ public class Task {
             throw new InvalidTaskIdException();
         }
         this.taskId = taskId;
+    }
+
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getComment() {
+        return comment;
     }
 
     /**

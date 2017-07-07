@@ -1,5 +1,8 @@
 package com.schenkbarnabas.tlog16rs.core.beans;
 
+import com.schenkbarnabas.tlog16rs.entities.Task;
+import com.schenkbarnabas.tlog16rs.entities.WorkDay;
+import com.schenkbarnabas.tlog16rs.entities.WorkMonth;
 import com.schenkbarnabas.tlog16rs.core.exceptions.EmptyTimeFieldException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NotNewDateException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NotTheSameMonthException;
@@ -8,8 +11,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by bschenk on 6/28/17.

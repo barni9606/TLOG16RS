@@ -1,37 +1,63 @@
-package com.schenkbarnabas.tlog16rs.core.beans;
+package com.schenkbarnabas.tlog16rs.entities;
 
-import com.schenkbarnabas.tlog16rs.core.exceptions.*;
+import com.schenkbarnabas.tlog16rs.core.beans.Util;
+import com.schenkbarnabas.tlog16rs.core.exceptions.EmptyTimeFieldException;
+import com.schenkbarnabas.tlog16rs.core.exceptions.FutureWorkException;
+import com.schenkbarnabas.tlog16rs.core.exceptions.NegativeMinutesOfWorkException;
+import com.schenkbarnabas.tlog16rs.core.exceptions.NotSeparatedTimesException;
+import com.schenkbarnabas.tlog16rs.core.exceptions.NotExpectedTimeOrderException;
 
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 /**
  * Created by bschenk on 6/27/17.
  */
+@Entity
 @lombok.EqualsAndHashCode(of = "actualDay")
 public class WorkDay {
+
+    @Id
+    @GeneratedValue
+    int id;
+
     /**
      * Tasks of the day
      */
-    @lombok.Getter
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private List<Task> tasks = new ArrayList<>();
+
     /**
      * The minimum required work time for the day in minutes
      */
-    @lombok.Getter
     private long requiredMinPerDay;
+
     /**
      * The date this object represents
      */
-    @lombok.Getter
-    private LocalDate actualDay;
+    LocalDate actualDay;
+
+
     /**
      * The sum of time spent on tasks on the actual day
      */
     private long sumPerDay;
+
+    private long extraMinPerDay;
+
+    public void setExtraMinPerDay(long extraMinPerDay) {
+        this.extraMinPerDay = extraMinPerDay;
+    }
 
     /**
      * Constructor for required minutes and actual day
@@ -80,13 +106,48 @@ public class WorkDay {
         this(requiredMinPerDay, LocalDate.now());
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    public long getRequiredMinPerDay() {
+        return requiredMinPerDay;
+    }
+
+    public LocalDate getActualDay() {
+        return actualDay;
+    }
+
+    public void setActualDay(LocalDate actualDay) {
+        this.actualDay = actualDay;
+    }
+
+    public void setSumPerDay(long sumPerDay) {
+        this.sumPerDay = sumPerDay;
+    }
+
+
+
     /**
      *
      * @return how much more time was spent on this day than the required in minutes
      * @throws EmptyTimeFieldException the tasks' time fields must not be null
      */
     public long getExtraMinPerDay() throws EmptyTimeFieldException {
-        return getSumPerDay() - requiredMinPerDay;
+        extraMinPerDay = getSumPerDay() - requiredMinPerDay;
+        return extraMinPerDay;
     }
 
     /**

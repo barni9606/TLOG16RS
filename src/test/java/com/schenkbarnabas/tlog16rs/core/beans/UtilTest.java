@@ -1,17 +1,14 @@
 package com.schenkbarnabas.tlog16rs.core.beans;
 
+import com.schenkbarnabas.tlog16rs.entities.Task;
 import com.schenkbarnabas.tlog16rs.core.exceptions.EmptyTimeFieldException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NotExpectedTimeOrderException;
 import org.junit.Assert;
 import org.junit.Test;
-import java.time.LocalDate;
+
 import java.time.LocalTime;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by bschenk on 6/29/17.

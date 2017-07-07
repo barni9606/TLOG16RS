@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b28a3b22-33c9-45bb-8489-5f7ebf3fa8e9" activeEnvironment="Default" name="TimeLoggerTest" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="TimeLoggerTestSuite"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="newWorkMonth"/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:RestService" id="f3a9f649-c9f6-42f4-add8-dcea4754ab73" wadlVersion="http://wadl.dev.java.net/2009/02" name="TimeLoggerTest" type="rest" definitionUrl="localhost" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT"/><con:endpoints/><con:resource name="workmonths" path="/timelogger/workmonths" id="d271d18c-e630-4671-8ef3-1f399aacb236"><con:settings/><con:parameters/><con:resource name="deleteall" path="deleteall" id="691e1e8c-2d4d-4f7d-a789-0bbd6c5756ac"><con:settings/><con:parameters/><con:method name="put" id="9e34e643-fe8c-425a-a873-16b4ec1a3199" method="PUT"><con:settings/><con:parameters/></con:method></con:resource><con:resource name="getDays" path="2016/9" id="8ad27e74-a082-4b19-9082-dcac2f0486b2"><con:settings/><con:parameters/><con:method name="get" id="409bd816-6376-4259-ac9b-a43e1dc1dece" method="GET"><con:settings/><con:parameters/></con:method></con:resource><con:resource name="listDays" path="/2016/9/1" id="1c126245-4571-4369-b2a0-219e0c87aba8"><con:settings/><con:parameters/><con:method name="get" id="a36ea9ce-eb0e-4059-94ec-25633aa26133" method="GET"><con:settings/><con:parameters/></con:method></con:resource><con:resource name="finishTask" path="workdays/tasks/finish" id="ddd313ab-be76-4d7c-84ca-4e1edaed45b8"><con:settings/><con:parameters/><con:method name="put" id="a77a4c4d-1935-4977-abf0-ee8cbfd34be2" method="PUT"><con:settings/><con:parameters/></con:method></con:resource><con:resource name="startTask" path="workdays/tasks/start" id="22126609-acbd-4f7e-84cd-43e682a80f13"><con:settings/><con:parameters/><con:method name="post" id="2db2e8be-eab0-4691-a02a-88024dbb7613" method="POST"><con:settings/><con:parameters/></con:method></con:resource><con:resource name="modifyTask" path="workdays/tasks/modify" id="b810ded1-205b-4cde-9538-0f5666c9b240"><con:settings/><con:parameters/><con:method name="put" id="3881e479-5824-4a86-8603-cb5570554a3b" method="PUT"><con:settings/><con:parameters/></con:method></con:resource><con:resource name="deleteTask" path="workdays/tasks/delete" id="ce5ccab2-b3a2-4f28-a214-481792e71cec"><con:settings/><con:parameters/><con:method name="put" id="982af2f3-7537-4c3c-a7ca-0613e51b6a66" method="PUT"><con:settings/><con:parameters/></con:method></con:resource><con:method name="post" id="028dd8db-29f3-4b32-b685-e939dff37bac" method="POST"><con:settings/><con:parameters/></con:method><con:method name="get" id="71728540-6886-4bcf-b13e-a76d8b49284f" method="GET"><con:settings/><con:parameters/></con:method></con:resource><con:resource name="workdays" path="/timelogger/workmonths/workdays" id="8556d767-2581-4b0f-a046-46a6b0907f7b"><con:settings/><con:parameters/><con:method name="post" id="f686df99-d6b1-4622-8fe1-add9888be298" method="POST"><con:settings/><con:parameters/></con:method><con:method name="get" id="01dcbfc2-afa8-4038-a176-141dd2853682" method="GET"><con:settings/><con:parameters/></con:method></con:resource></con:interface><con:testSuite id="5b7b0450-22f5-4c9e-84db-166bea2ea59a" name="TimeLoggerTestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="f1350a33-6341-423a-8c70-1b2c7711682d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="newWorkMonth" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="createWorkMonth" id="53ea20b9-ca8a-477e-9677-8057fd78fc66"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkMonth" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkMonthCreated" id="8834a535-1f26-407a-85f8-3c25f260258c"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkMonthCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="8726de82-a6b9-45eb-b8b5-8e9dd8fafdaa"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="e38209b6-427e-4981-8e26-9f750a4f9d3f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="twoNewMonths" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="first" id="5740848e-45d7-414c-bf9d-2a70f5914003"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="first" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="second" id="7cb1eef3-3759-4563-8189-86fe1125c811"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="second" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":10}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-10"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkMonthCreated" id="7e2618ab-6c99-495d-82c4-754e86c7f7ed"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkMonthCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.date.get(1) == "2016-10"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="be377a2e-a126-406e-9930-f3bf94420bff"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ca037f97-962e-40e9-9e45-8f33642d0c9e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="twoNotDifferentMonths" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="first" id="2d72e239-b963-4eff-8381-72ffaafba9a3"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="first" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="second" id="af26cf69-cb3b-4b13-9315-9a862b9e89dc"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="second" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkMonthCreated" id="8baaea6a-327e-4162-b4fe-eb2d8a169fc0"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkMonthCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.date.size == 1</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="97b12d2a-50c0-4016-91b8-092324f0eee4"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ff08f6e5-706e-4360-950c-006eefce58a5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="newDayToExistingMonth" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="createWorkMonth" id="07af8789-0128-4dcc-ae71-a4ecac88c58d"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkMonth" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkMonthCreated" id="11fe5bde-7cdf-4cd7-a6d0-e679e437b246"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkMonthCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createWorkDay" id="a5037595-8be0-4a43-b4fe-96de0e262202"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkDay" id="c8ee6edc-c81e-47de-8473-2a6d9a8ec391" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year": 2016, "month": 9, "day": 1, "requiredHours": 7}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="b58c1ea2-7fd4-4ba7-9a37-48cfab449e28" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="af3f6251-efce-4c95-bc32-b9d3da3a9c08" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.actualDay.year == 2016
+assert slurperresponse.actualDay.monthValue == 9
+assert slurperresponse.actualDay.dayOfMonth == 1
+assert slurperresponse.requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkDayCreated" id="c0e53fd5-9ccf-4366-950c-9e48780f716a"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkDayCreated" id="35d97455-26bf-48c5-8967-67c5cc2f8950" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/workdays</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c07390a2-6787-4d6b-9ec9-b9c0c60b93ed" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="02151658-1d4d-4f00-939e-581b835adbac" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="8c6c86be-e1f1-4a84-aac7-aee197bced55"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="065ed658-115f-493e-a772-2f0b7732f819" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="newDayToNotYetExistingMonth" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="isWorkMonthCreated" id="9c3e8bb1-4a4e-4a54-9173-7449465e7480"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkMonthCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.size == 0</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createWorkDay" id="f9358403-4d67-4fb9-98fb-9246b3f1d2f5"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkDay" id="c8ee6edc-c81e-47de-8473-2a6d9a8ec391" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year": 2016, "month": 9, "day": 1, "requiredHours": 7}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="b58c1ea2-7fd4-4ba7-9a37-48cfab449e28" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="af3f6251-efce-4c95-bc32-b9d3da3a9c08" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.actualDay.year == 2016
+assert slurperresponse.actualDay.monthValue == 9
+assert slurperresponse.actualDay.dayOfMonth == 1
+assert slurperresponse.requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkDayCreated" id="c62a45cf-ea71-4e18-aa5b-b51a2d5d0046"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkDayCreated" id="35d97455-26bf-48c5-8967-67c5cc2f8950" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/workdays</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c07390a2-6787-4d6b-9ec9-b9c0c60b93ed" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="02151658-1d4d-4f00-939e-581b835adbac" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="fea67d4f-0d8a-4186-baab-74320b498d60"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="305c9bf4-c011-40bc-bc6b-017de191a7f6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="listDaysOfExistingMonth" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="createWorkMonth" id="e089485e-f4da-49e1-8a51-8ecccff703b8"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkMonth" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createWorkDay" id="d21aff02-fbc9-41eb-9449-447bbc5bb389"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkDay" id="c8ee6edc-c81e-47de-8473-2a6d9a8ec391" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year": 2016, "month": 9, "day": 1, "requiredHours": 7}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="b58c1ea2-7fd4-4ba7-9a37-48cfab449e28" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="af3f6251-efce-4c95-bc32-b9d3da3a9c08" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.actualDay.year == 2016
+assert slurperresponse.actualDay.monthValue == 9
+assert slurperresponse.actualDay.dayOfMonth == 1
+assert slurperresponse.requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createWorkDay 1" id="331935c5-f40b-44ac-b00e-f04ba2b04770"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkDay 1" id="c8ee6edc-c81e-47de-8473-2a6d9a8ec391" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year": 2016, "month": 9, "day": 8, "requiredHours": 7}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="b58c1ea2-7fd4-4ba7-9a37-48cfab449e28" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="af3f6251-efce-4c95-bc32-b9d3da3a9c08" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.actualDay.year == 2016
+assert slurperresponse.actualDay.monthValue == 9
+assert slurperresponse.actualDay.dayOfMonth == 8
+assert slurperresponse.requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createWorkDay 2" id="1dc3c54a-360a-4d0f-9d10-68aea8a89cf1"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkDay 2" id="c8ee6edc-c81e-47de-8473-2a6d9a8ec391" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year": 2016, "month": 9, "day": 15, "requiredHours": 7.5}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="b58c1ea2-7fd4-4ba7-9a37-48cfab449e28" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="af3f6251-efce-4c95-bc32-b9d3da3a9c08" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.actualDay.year == 2016
+assert slurperresponse.actualDay.monthValue == 9
+assert slurperresponse.actualDay.dayOfMonth == 15
+assert slurperresponse.requiredMinPerDay == 450</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkDayCreated" id="90461364-2369-4186-a60c-95558cc077d1"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkDayCreated" id="35d97455-26bf-48c5-8967-67c5cc2f8950" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/workdays</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c07390a2-6787-4d6b-9ec9-b9c0c60b93ed" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="02151658-1d4d-4f00-939e-581b835adbac" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).requiredMinPerDay == 420
+
+assert slurperresponse.get(0).days.get(1).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(1).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(1).actualDay.dayOfMonth == 8
+assert slurperresponse.get(0).days.get(1).requiredMinPerDay == 420
+
+assert slurperresponse.get(0).days.get(2).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(2).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(2).actualDay.dayOfMonth == 15
+assert slurperresponse.get(0).days.get(2).requiredMinPerDay == 450</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="75ae9e94-a551-4f4d-845a-2b5b5e0b610b"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="1c68f1cb-a955-42be-93aa-602c5c999866" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="listDaysOfNonExistingMonth" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="isWorkMonth" id="e24ae4c3-0058-4a56-9d0d-21c0e39d0caf"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths/2016/9" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of isWorkDayCreated" id="35d97455-26bf-48c5-8967-67c5cc2f8950" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/workdays</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c07390a2-6787-4d6b-9ec9-b9c0c60b93ed" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="02151658-1d4d-4f00-939e-581b835adbac" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.size == 0</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="1943bf88-e6f4-4142-a9dc-9e65157a1a3d"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="cc1db8d7-3fd6-4f50-b16b-d0d9a61317fd" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="startNewTaskOnExistingDay" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="createWorkMonth" id="e94da2d6-e33d-46f4-8e0f-be93519ceb5e"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkMonth" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkMonthCreated" id="61ebaae6-1cfd-4a23-be97-21e966a912c3"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkMonthCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createWorkDay" id="14891f66-f3b1-4c0f-a178-f238412d3fa7"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkDay" id="c8ee6edc-c81e-47de-8473-2a6d9a8ec391" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year": 2016, "month": 9, "day": 1, "requiredHours": 7}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="b58c1ea2-7fd4-4ba7-9a37-48cfab449e28" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="af3f6251-efce-4c95-bc32-b9d3da3a9c08" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.actualDay.year == 2016
+assert slurperresponse.actualDay.monthValue == 9
+assert slurperresponse.actualDay.dayOfMonth == 1
+assert slurperresponse.requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkDayCreated" id="d68332f0-45ed-4327-bd73-718fbec658ba"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkDayCreated" id="35d97455-26bf-48c5-8967-67c5cc2f8950" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/workdays</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c07390a2-6787-4d6b-9ec9-b9c0c60b93ed" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="02151658-1d4d-4f00-939e-581b835adbac" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="startTask" id="8c9b31f8-678e-467f-b8a1-7b43eccb4722"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays/tasks/start" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="startTask" id="97f92034-f269-4db1-ade7-c1cf964d6d96" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"comment": "asd"
+}</con:request><con:originalUri>http://localhost/timelogger/workdays/tasks/start</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e38ea4a-6835-47d1-8888-9fbd01c3bd26" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e35b6c68-e3e8-4fe1-b18a-3c0f13f87a97" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1234"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 0
+assert slurperresponse.comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="d513db04-1b79-45a3-8b78-56b409c7bb2d"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="99bbb325-fec3-410e-a5c3-991073e5f632" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="startNewTaskOnNonExistingDayButExistingMonth" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="createWorkMonth" id="feae6383-1c7b-4ce4-b624-1a3b3ee2c1c9"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkMonth" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkMonthCreated" id="b672398b-feea-4dd8-983f-b3cabdf1c4c5"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkMonthCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="startTask" id="aa9e7dc7-1fb8-493d-9818-d0333a33372c"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays/tasks/start" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="startTask" id="97f92034-f269-4db1-ade7-c1cf964d6d96" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"comment": "asd"
+}</con:request><con:originalUri>http://localhost/timelogger/workdays/tasks/start</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e38ea4a-6835-47d1-8888-9fbd01c3bd26" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e35b6c68-e3e8-4fe1-b18a-3c0f13f87a97" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1234"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 0
+assert slurperresponse.comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="everyPartExists" id="9874b3e4-ed36-4518-bf78-992daf841c37"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="everyPartExists" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="6d63ace0-9ecc-4213-b840-9031e602bdfa" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.days.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).tasks.size == 1
+assert slurperresponse.get(0).days.get(0).tasks.get(0).taskId == "1234"
+assert slurperresponse.get(0).days.get(0).tasks.get(0).startTime.hour == 8
+assert slurperresponse.get(0).days.get(0).tasks.get(0).startTime.minute == 30
+assert slurperresponse.get(0).days.get(0).tasks.get(0).minPerTask == 0
+assert slurperresponse.get(0).days.get(0).tasks.get(0).comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="b7553a6d-d7a8-4db7-9b83-62a1f9281c86"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="cf3df99f-7b77-4b3a-b2df-637ddf35a1d6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="startNewTaskOnNonExistingMonth" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="startTask" id="f8257125-90fd-4514-bcd0-d5f09aab448d"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays/tasks/start" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="startTask" id="97f92034-f269-4db1-ade7-c1cf964d6d96" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"comment": "asd"
+}</con:request><con:originalUri>http://localhost/timelogger/workdays/tasks/start</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e38ea4a-6835-47d1-8888-9fbd01c3bd26" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e35b6c68-e3e8-4fe1-b18a-3c0f13f87a97" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1234"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 0
+assert slurperresponse.comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="everyPartExists" id="ad0769e4-1828-4e67-a021-bb97ee28ebc1"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of everyPartExists" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="6d63ace0-9ecc-4213-b840-9031e602bdfa" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.days.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).tasks.size == 1
+assert slurperresponse.get(0).days.get(0).tasks.get(0).taskId == "1234"
+assert slurperresponse.get(0).days.get(0).tasks.get(0).startTime.hour == 8
+assert slurperresponse.get(0).days.get(0).tasks.get(0).startTime.minute == 30
+assert slurperresponse.get(0).days.get(0).tasks.get(0).minPerTask == 0
+assert slurperresponse.get(0).days.get(0).tasks.get(0).comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="46c8115d-1df7-4dd3-ab69-59b6b45e88da"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ed6dfad9-e02e-49f7-8d35-3cca1b41ef94" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="listTasksOnAnExistingDay" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="createWorkMonth" id="67048360-db51-4583-abff-0a7456e28fe2"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkMonth" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkMonthCreated" id="643b5bc6-e733-4726-8594-7a18e25a6ad4"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkMonthCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createWorkDay" id="11300db0-ab27-4969-acc2-81b48e6f70de"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkDay" id="c8ee6edc-c81e-47de-8473-2a6d9a8ec391" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year": 2016, "month": 9, "day": 1, "requiredHours": 7}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="b58c1ea2-7fd4-4ba7-9a37-48cfab449e28" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="af3f6251-efce-4c95-bc32-b9d3da3a9c08" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.actualDay.year == 2016
+assert slurperresponse.actualDay.monthValue == 9
+assert slurperresponse.actualDay.dayOfMonth == 1
+assert slurperresponse.requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkDayCreated" id="b17dbc9e-44eb-4cd1-b7c9-389625e51ce0"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkDayCreated" id="35d97455-26bf-48c5-8967-67c5cc2f8950" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/workdays</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c07390a2-6787-4d6b-9ec9-b9c0c60b93ed" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="02151658-1d4d-4f00-939e-581b835adbac" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="startTask" id="3a410774-a5ec-4733-89c8-f00c12555b15"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays/tasks/start" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="startTask" id="97f92034-f269-4db1-ade7-c1cf964d6d96" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"comment": "asd"
+}</con:request><con:originalUri>http://localhost/timelogger/workdays/tasks/start</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e38ea4a-6835-47d1-8888-9fbd01c3bd26" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e35b6c68-e3e8-4fe1-b18a-3c0f13f87a97" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1234"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 0
+assert slurperresponse.comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="everyPartExists" id="67ff396e-16d7-49c8-96b1-9766f25a035c"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="everyPartExists" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="6d63ace0-9ecc-4213-b840-9031e602bdfa" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.days.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).tasks.size == 1
+assert slurperresponse.get(0).days.get(0).tasks.get(0).taskId == "1234"
+assert slurperresponse.get(0).days.get(0).tasks.get(0).startTime.hour == 8
+assert slurperresponse.get(0).days.get(0).tasks.get(0).startTime.minute == 30
+assert slurperresponse.get(0).days.get(0).tasks.get(0).minPerTask == 0
+assert slurperresponse.get(0).days.get(0).tasks.get(0).comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="startTask 1" id="7d115666-c39e-4d24-8aba-98982ddbee16"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays/tasks/start" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="startTask" id="97f92034-f269-4db1-ade7-c1cf964d6d96" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 8,
+	"taskId": "4321",
+	"startTime": "8:30",
+	"comment": "asd"
+}</con:request><con:originalUri>http://localhost/timelogger/workdays/tasks/start</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e38ea4a-6835-47d1-8888-9fbd01c3bd26" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e35b6c68-e3e8-4fe1-b18a-3c0f13f87a97" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "4321"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 0
+assert slurperresponse.comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="everyPartExists 1" id="4cf53cf4-384c-41d8-b6ad-2cd7c6409e7c"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="everyPartExists" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="6d63ace0-9ecc-4213-b840-9031e602bdfa" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.days.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).tasks.size == 1
+assert slurperresponse.get(0).days.get(0).tasks.get(0).taskId == "1234"
+assert slurperresponse.get(0).days.get(0).tasks.get(0).startTime.hour == 8
+assert slurperresponse.get(0).days.get(0).tasks.get(0).startTime.minute == 30
+assert slurperresponse.get(0).days.get(0).tasks.get(0).minPerTask == 0
+assert slurperresponse.get(0).days.get(0).tasks.get(0).comment == "asd"
+assert slurperresponse.get(0).days.get(1).tasks.get(0).taskId == "4321"
+assert slurperresponse.get(0).days.get(1).tasks.get(0).startTime.hour == 8
+assert slurperresponse.get(0).days.get(1).tasks.get(0).startTime.minute == 30
+assert slurperresponse.get(0).days.get(1).tasks.get(0).minPerTask == 0
+assert slurperresponse.get(0).days.get(1).tasks.get(0).comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="startTask 2" id="de594ca4-a92c-4657-8e74-454e33dae640"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays/tasks/start" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="startTask 1" id="97f92034-f269-4db1-ade7-c1cf964d6d96" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 8,
+	"taskId": "1111",
+	"startTime": "10:30",
+	"comment": "asd"
+}</con:request><con:originalUri>http://localhost/timelogger/workdays/tasks/start</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e38ea4a-6835-47d1-8888-9fbd01c3bd26" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e35b6c68-e3e8-4fe1-b18a-3c0f13f87a97" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1111"
+assert slurperresponse.startTime.hour == 10
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 0
+assert slurperresponse.comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="everyPartExists 2" id="70b45c67-3047-40a1-a3dd-bf38c49b0163"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="everyPartExists 2" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="6d63ace0-9ecc-4213-b840-9031e602bdfa" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+def days = slurperresponse.get(0).days
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.days.size == 1
+assert days.get(0).actualDay.year == 2016
+assert days.get(0).actualDay.monthValue == 9
+assert days.get(0).actualDay.dayOfMonth == 1
+assert days.get(0).tasks.size == 1
+assert days.get(0).tasks.get(0).taskId == "1234"
+assert days.get(0).tasks.get(0).startTime.hour == 8
+assert days.get(0).tasks.get(0).startTime.minute == 30
+assert days.get(0).tasks.get(0).minPerTask == 0
+assert days.get(0).tasks.get(0).comment == "asd"
+assert days.get(1).tasks.get(0).taskId == "4321"
+assert days.get(1).tasks.get(0).startTime.hour == 8
+assert days.get(1).tasks.get(0).startTime.minute == 30
+assert days.get(1).tasks.get(0).minPerTask == 0
+assert days.get(1).tasks.get(0).comment == "asd"
+assert days.get(1).tasks.get(1).taskId == "1111"
+assert days.get(1).tasks.get(1).startTime.hour == 10
+assert days.get(1).tasks.get(1).startTime.minute == 30
+assert days.get(1).tasks.get(1).minPerTask == 0
+assert days.get(1).tasks.get(1).comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="7f19f426-4b1c-455d-b9d1-75b03dc4df6b"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="c7a2c7a9-5956-4081-be54-225a89d6ffb6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="listTasksOnNonExistingDay" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="createWorkMonth" id="25a647db-4208-44fe-8600-96a1bcd39542"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkMonth" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="listTasks" id="7cad3f87-e113-4739-b6cf-bcb55dc496fd"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths/2016/9/1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Copy of everyPartExists" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e16406c3-d51c-43e5-8ad9-31aabe7b066f" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.size == 0</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isEverythingCreated" id="3557223d-8a30-4ecf-8ffa-7b12fbb92f99"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isEverythinCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.days.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).tasks.size == 0</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="09f9f923-5423-48a2-804c-3439c7f59790"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="4a79f8fe-357c-41f7-aefd-99bb64f38120" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="listTasksOnNonExistingMonth" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="listTasks" id="3a866706-1733-483f-af1f-a35ea7e69666"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths/2016/9/1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="listTasks" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="bd28918f-327e-481c-928d-2528c94bd373" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.size == 0</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isEverythingCreated" id="c10f5d1b-cf17-4bb2-a8b1-1b2487a3ec65"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isEverythinCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.days.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).tasks.size == 0</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="9e23ed6f-cb22-4715-a61c-be828b59772b"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="f1598d94-20c2-4740-94fd-d0d175c1b638" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="finishExistingTask" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="startTask" id="aa123654-2d9f-45c0-a3e3-95ebe7b362c9"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays/tasks/start" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="startTask" id="97f92034-f269-4db1-ade7-c1cf964d6d96" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"comment": "asd"
+}</con:request><con:originalUri>http://localhost/timelogger/workdays/tasks/start</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e38ea4a-6835-47d1-8888-9fbd01c3bd26" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="e35b6c68-e3e8-4fe1-b18a-3c0f13f87a97" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1234"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 0
+assert slurperresponse.comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="everyPartExists" id="46443ca2-6a6b-4fdc-b07f-e33c71be9b6f"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="everyPartExists" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="6d63ace0-9ecc-4213-b840-9031e602bdfa" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.days.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).tasks.size == 1
+assert slurperresponse.get(0).days.get(0).tasks.get(0).taskId == "1234"
+assert slurperresponse.get(0).days.get(0).tasks.get(0).startTime.hour == 8
+assert slurperresponse.get(0).days.get(0).tasks.get(0).startTime.minute == 30
+assert slurperresponse.get(0).days.get(0).tasks.get(0).minPerTask == 0
+assert slurperresponse.get(0).days.get(0).tasks.get(0).comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="finishTask" id="1b6adcd6-1d1c-4d4a-bff6-251f3e2117bc"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/finish" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="finishTask" id="607f8e2c-8ade-47f4-8ddd-b7f91d4d9e7c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"endTime": "10:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/finish</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="6b79d976-6d5c-4693-871d-e42c7c63384a" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="a73275c7-6631-458b-b892-fa74fd233c85" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1234"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 120
+assert slurperresponse.endTime.hour == 10
+assert slurperresponse.endTime.minute == 30
+
+assert slurperresponse.comment == "asd"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="listTasks" id="1ead9ecd-5676-4e5e-be98-6fcdd341225a"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths/2016/9/1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="listTasks" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="9de308ea-6668-47e0-9896-b0a05b110c7e" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.size == 1
+assert slurperresponse.get(0).taskId == "1234"
+assert slurperresponse.get(0).startTime.hour == 8
+assert slurperresponse.get(0).startTime.minute == 30
+assert slurperresponse.get(0).endTime.hour == 10
+assert slurperresponse.get(0).endTime.minute == 30
+assert slurperresponse.get(0).comment == "asd"
+assert slurperresponse.get(0).minPerTask == 120</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="5e224da9-8a5f-4849-9c42-4d40d0b84647"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="92eb95cb-cffc-4e7b-b398-04290324a516" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="finishNonExistingTask" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="createWorkMonth" id="88072586-2280-4371-a553-af9d6077ee77"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkMonth" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkMonthCreated" id="8e9dee9d-16e3-4a2d-b677-2e3b7d54ec01"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkMonthCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="createWorkDay" id="4ab021c5-c796-408d-9694-7cf71cf5753f"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkDay" id="c8ee6edc-c81e-47de-8473-2a6d9a8ec391" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year": 2016, "month": 9, "day": 1, "requiredHours": 7}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="b58c1ea2-7fd4-4ba7-9a37-48cfab449e28" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="af3f6251-efce-4c95-bc32-b9d3da3a9c08" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.actualDay.year == 2016
+assert slurperresponse.actualDay.monthValue == 9
+assert slurperresponse.actualDay.dayOfMonth == 1
+assert slurperresponse.requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkDayCreated" id="29e98237-f9a0-49c9-a3f9-3ecf422ddcab"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkDayCreated" id="35d97455-26bf-48c5-8967-67c5cc2f8950" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/workdays</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c07390a2-6787-4d6b-9ec9-b9c0c60b93ed" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="02151658-1d4d-4f00-939e-581b835adbac" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="finishTask" id="c2087936-505e-4bd6-9780-5d80699bec8a"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/finish" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="finishTask" id="607f8e2c-8ade-47f4-8ddd-b7f91d4d9e7c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"endTime": "10:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/finish</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="6b79d976-6d5c-4693-871d-e42c7c63384a" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="a73275c7-6631-458b-b892-fa74fd233c85" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1234"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 120
+assert slurperresponse.endTime.hour == 10
+assert slurperresponse.endTime.minute == 30
+
+assert slurperresponse.comment == ""</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="listTasks" id="b9675cae-6c62-4acf-8144-7394d38d58ba"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths/2016/9/1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="listTasks" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="9de308ea-6668-47e0-9896-b0a05b110c7e" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.size == 1
+assert slurperresponse.get(0).taskId == "1234"
+assert slurperresponse.get(0).startTime.hour == 8
+assert slurperresponse.get(0).startTime.minute == 30
+assert slurperresponse.get(0).endTime.hour == 10
+assert slurperresponse.get(0).endTime.minute == 30
+assert slurperresponse.get(0).comment == ""
+assert slurperresponse.get(0).minPerTask == 120</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="d4f5092d-5f86-4037-9fee-6ef82f9d4ad1"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="2ae04412-7a3a-4f97-b2cf-06ba4cc43ab5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="finishNonExistingTaskOnANonExistingDay" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="createWorkMonth" id="d46f43b2-9ab4-4b53-9cad-a27a6eaadce7"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkMonth" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkMonthCreated" id="bc9c3845-5ee9-4995-88fe-508261fed677"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkMonthCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="finishTask" id="2b13cfd5-8d03-43e5-94a3-e0e4b945fa55"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/finish" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="finishTask" id="607f8e2c-8ade-47f4-8ddd-b7f91d4d9e7c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"endTime": "10:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/finish</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="6b79d976-6d5c-4693-871d-e42c7c63384a" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="a73275c7-6631-458b-b892-fa74fd233c85" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1234"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 120
+assert slurperresponse.endTime.hour == 10
+assert slurperresponse.endTime.minute == 30
+
+assert slurperresponse.comment == ""</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="listTasks" id="cccec36f-f9f8-47e3-882e-3a741594f3f3"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths/2016/9/1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="listTasks" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="9de308ea-6668-47e0-9896-b0a05b110c7e" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.size == 1
+assert slurperresponse.get(0).taskId == "1234"
+assert slurperresponse.get(0).startTime.hour == 8
+assert slurperresponse.get(0).startTime.minute == 30
+assert slurperresponse.get(0).endTime.hour == 10
+assert slurperresponse.get(0).endTime.minute == 30
+assert slurperresponse.get(0).comment == ""
+assert slurperresponse.get(0).minPerTask == 120</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isEverythingCreated" id="7e3987d5-7bbc-4c81-9f6e-ef5d55e5371b"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isEverythingCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.days.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).tasks.size == 1</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="9d340373-1b78-4f90-a035-04edc5a78b3f"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="e35efe00-fbbb-41ac-8b07-3c1eb643c957" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="finishNonExistingTaskOnANonExistingMonth" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="finishTask" id="d0972d79-3286-43d0-91c7-510c1f30d5c1"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/finish" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="finishTask" id="607f8e2c-8ade-47f4-8ddd-b7f91d4d9e7c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"endTime": "10:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/finish</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="6b79d976-6d5c-4693-871d-e42c7c63384a" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="a73275c7-6631-458b-b892-fa74fd233c85" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1234"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 120
+assert slurperresponse.endTime.hour == 10
+assert slurperresponse.endTime.minute == 30
+
+assert slurperresponse.comment == ""</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="listTasks" id="06b52d2c-e077-4557-9380-049ef8e314a7"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths/2016/9/1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="listTasks" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="9de308ea-6668-47e0-9896-b0a05b110c7e" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.size == 1
+assert slurperresponse.get(0).taskId == "1234"
+assert slurperresponse.get(0).startTime.hour == 8
+assert slurperresponse.get(0).startTime.minute == 30
+assert slurperresponse.get(0).endTime.hour == 10
+assert slurperresponse.get(0).endTime.minute == 30
+assert slurperresponse.get(0).comment == ""
+assert slurperresponse.get(0).minPerTask == 120</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isEverythingCreated" id="96e1070c-3c4b-434c-8f9b-7061fc2466a8"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isEverythingCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.days.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).tasks.size == 1</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="d1c85368-293b-4fdf-8730-3c42a7bccbac"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d53c8ec4-97c5-4948-b799-373fd627dadf" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="modifyExistingTask" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="finishTask" id="507bee88-5135-4c79-84d9-e3949cda0452"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/finish" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="finishTask" id="607f8e2c-8ade-47f4-8ddd-b7f91d4d9e7c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"endTime": "10:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/finish</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="6b79d976-6d5c-4693-871d-e42c7c63384a" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="a73275c7-6631-458b-b892-fa74fd233c85" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1234"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 120
+assert slurperresponse.endTime.hour == 10
+assert slurperresponse.endTime.minute == 30
+
+assert slurperresponse.comment == ""</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="listTasks" id="5c7c1a34-d03c-43c1-9700-b723d92f6ea3"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths/2016/9/1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="listTasks" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="9de308ea-6668-47e0-9896-b0a05b110c7e" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.size == 1
+assert slurperresponse.get(0).taskId == "1234"
+assert slurperresponse.get(0).startTime.hour == 8
+assert slurperresponse.get(0).startTime.minute == 30
+assert slurperresponse.get(0).endTime.hour == 10
+assert slurperresponse.get(0).endTime.minute == 30
+assert slurperresponse.get(0).comment == ""
+assert slurperresponse.get(0).minPerTask == 120</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="modifyTask" id="c6613efa-016e-4657-99b6-c093e5cb8818"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/modify" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="modifyTask" id="8c6bdbbd-ea23-4ebc-a22a-eb299d00bb00" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"newTaskId": "4321",
+	"newComment": "dsa",
+	"newStartTime": "11:30",
+	"newEndTime": "12:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/modify</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d63455f8-264d-4fd8-9eb4-43338be141ce" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="b18af5c1-e72b-4da8-b694-b631d0734673" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "4321"
+assert slurperresponse.startTime.hour == 11
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.endTime.hour == 12
+assert slurperresponse.endTime.minute == 30
+assert slurperresponse.comment == "dsa"
+assert slurperresponse.minPerTask == 60</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="27de5877-b678-4a69-a084-5b3dae4e4ae3"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ff406c8a-11e1-4037-99e7-16fd15fbb3de" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="modifyNonExistingTask" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="createWorkDay" id="65940992-f2c1-4c7f-9796-f8457b3d94dc"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths/workdays" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkDay" id="c8ee6edc-c81e-47de-8473-2a6d9a8ec391" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year": 2016, "month": 9, "day": 1, "requiredHours": 7}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="b58c1ea2-7fd4-4ba7-9a37-48cfab449e28" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="af3f6251-efce-4c95-bc32-b9d3da3a9c08" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.actualDay.year == 2016
+assert slurperresponse.actualDay.monthValue == 9
+assert slurperresponse.actualDay.dayOfMonth == 1
+assert slurperresponse.requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkDayCreated" id="8a5e1fdd-c0f2-4c95-9399-112338dd2a57"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkDayCreated" id="35d97455-26bf-48c5-8967-67c5cc2f8950" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/workdays</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="c07390a2-6787-4d6b-9ec9-b9c0c60b93ed" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="02151658-1d4d-4f00-939e-581b835adbac" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).requiredMinPerDay == 420</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="modifyTask" id="76b7e899-1d7a-4b20-a351-43dd4e8e9d31"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/modify" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="modifyTask" id="8c6bdbbd-ea23-4ebc-a22a-eb299d00bb00" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"newTaskId": "4321",
+	"newComment": "dsa",
+	"newStartTime": "11:30",
+	"newEndTime": "12:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/modify</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d63455f8-264d-4fd8-9eb4-43338be141ce" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="b18af5c1-e72b-4da8-b694-b631d0734673" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "4321"
+assert slurperresponse.startTime.hour == 11
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.endTime.hour == 12
+assert slurperresponse.endTime.minute == 30
+assert slurperresponse.comment == "dsa"
+assert slurperresponse.minPerTask == 60</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="a07af210-a569-43fd-aef0-f9753547ab7a"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="4884637f-30da-42ac-8bc7-66490de18791" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="modifyTaskOnNonExistingDay" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="createWorkMonth" id="1cc854cd-2341-4b5e-baef-b31111c8a4e2"><con:settings/><con:config service="TimeLoggerTest" methodName="post" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="createWorkMonth" id="ec8eee39-c167-49d7-a29f-3d5c5c82aa75" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{"year":2016, "month":9}</con:request><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9aa62260-718e-4669-af46-a8762b98f63b" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="636d4180-e76c-4b1c-9e85-5963865a41e8" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+assert slurperresponse.date == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isWorkMonthCreated" id="3bf16b92-7e64-4de7-b431-92a727fb7e56"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isWorkMonthCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="modifyTask" id="4b567b83-a59f-42a2-9725-c5fc32da942a"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/modify" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="modifyTask" id="8c6bdbbd-ea23-4ebc-a22a-eb299d00bb00" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"newTaskId": "4321",
+	"newComment": "dsa",
+	"newStartTime": "11:30",
+	"newEndTime": "12:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/modify</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d63455f8-264d-4fd8-9eb4-43338be141ce" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="b18af5c1-e72b-4da8-b694-b631d0734673" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "4321"
+assert slurperresponse.startTime.hour == 11
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.endTime.hour == 12
+assert slurperresponse.endTime.minute == 30
+assert slurperresponse.comment == "dsa"
+assert slurperresponse.minPerTask == 60</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="02ccac4b-7d66-4c53-92ec-9556693d8fd1"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="2160e14c-7028-4be9-974b-a5d4c14380df" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="modifyTaskOnNonExistingMonth" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="modifyTask" id="e3b8f177-85be-4419-b5eb-5017b466b05a"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/modify" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="modifyTask" id="8c6bdbbd-ea23-4ebc-a22a-eb299d00bb00" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"newTaskId": "4321",
+	"newComment": "dsa",
+	"newStartTime": "11:30",
+	"newEndTime": "12:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/modify</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d63455f8-264d-4fd8-9eb4-43338be141ce" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="b18af5c1-e72b-4da8-b694-b631d0734673" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "4321"
+assert slurperresponse.startTime.hour == 11
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.endTime.hour == 12
+assert slurperresponse.endTime.minute == 30
+assert slurperresponse.comment == "dsa"
+assert slurperresponse.minPerTask == 60</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isEverythingCreated" id="640434f2-11dc-4e94-b1dc-173e8f863b46"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isEverythingCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.days.size == 1
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).tasks.size == 1
+assert slurperresponse.get(0).days.get(0).tasks.get(0).taskId == "4321"</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="6c7c78f1-c683-43c7-ab36-128ec15b912a"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b14e6c75-acdc-4bd9-ba54-d4e98c132921" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="deleteExistingTask" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="finishTask" id="077f4061-7923-4bb6-971c-2a166b3d559e"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/finish" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="finishTask" id="607f8e2c-8ade-47f4-8ddd-b7f91d4d9e7c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"endTime": "10:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/finish</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="6b79d976-6d5c-4693-871d-e42c7c63384a" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="a73275c7-6631-458b-b892-fa74fd233c85" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1234"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 120
+assert slurperresponse.endTime.hour == 10
+assert slurperresponse.endTime.minute == 30
+
+assert slurperresponse.comment == ""</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="finishTask 1" id="1130feea-8253-45af-b509-99a39c5dab0f"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/finish" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="finishTask" id="607f8e2c-8ade-47f4-8ddd-b7f91d4d9e7c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1111",
+	"startTime": "10:30",
+	"endTime": "10:45"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/finish</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="6b79d976-6d5c-4693-871d-e42c7c63384a" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="a73275c7-6631-458b-b892-fa74fd233c85" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1111"
+assert slurperresponse.startTime.hour == 10
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.endTime.hour == 10
+assert slurperresponse.endTime.minute == 45
+
+assert slurperresponse.comment == ""</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="finishTask 2" id="ac72899b-6640-479b-b033-2688d02efa45"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/finish" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="finishTask" id="607f8e2c-8ade-47f4-8ddd-b7f91d4d9e7c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "2222",
+	"startTime": "10:45",
+	"endTime": "11:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/finish</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="6b79d976-6d5c-4693-871d-e42c7c63384a" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="a73275c7-6631-458b-b892-fa74fd233c85" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "2222"
+assert slurperresponse.startTime.hour == 10
+assert slurperresponse.startTime.minute == 45
+assert slurperresponse.endTime.hour == 11
+assert slurperresponse.endTime.minute == 30
+
+assert slurperresponse.comment == ""</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="finishTask 3" id="8dec6021-636c-47fb-82eb-aa35f618a9e3"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/finish" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="finishTask" id="607f8e2c-8ade-47f4-8ddd-b7f91d4d9e7c" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 8,
+	"taskId": "1234",
+	"startTime": "8:30",
+	"endTime": "10:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/finish</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="6b79d976-6d5c-4693-871d-e42c7c63384a" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="a73275c7-6631-458b-b892-fa74fd233c85" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1234"
+assert slurperresponse.startTime.hour == 8
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.minPerTask == 120
+assert slurperresponse.endTime.hour == 10
+assert slurperresponse.endTime.minute == 30
+
+assert slurperresponse.comment == ""</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="listTasks" id="591beecf-80dd-450b-a587-ef85f9a77ffe"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths/2016/9/1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="listTasks" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="9de308ea-6668-47e0-9896-b0a05b110c7e" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.size == 3
+assert slurperresponse.get(0).taskId == "1234"
+assert slurperresponse.get(0).startTime.hour == 8
+assert slurperresponse.get(0).startTime.minute == 30
+assert slurperresponse.get(0).endTime.hour == 10
+assert slurperresponse.get(0).endTime.minute == 30
+assert slurperresponse.get(0).comment == ""
+
+assert slurperresponse.get(1).taskId == "1111"
+assert slurperresponse.get(1).startTime.hour == 10
+assert slurperresponse.get(1).startTime.minute == 30
+
+assert slurperresponse.get(2).taskId == "2222"
+assert slurperresponse.get(2).startTime.hour == 10
+assert slurperresponse.get(2).startTime.minute == 45
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isEverythingCreated" id="a6aeec8b-d687-4479-b86b-4137088662f9"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isEverythingCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.get(0).days.size == 2
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).tasks.size == 3
+
+assert slurperresponse.get(0).days.get(1).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(1).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(1).actualDay.dayOfMonth == 8
+assert slurperresponse.get(0).days.get(1).tasks.size == 1</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="deleteTask 1" id="fd9e8d78-bedb-4818-9abd-b56d9eb1179d"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/workdays/tasks/delete" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="deleteTask 1" id="fb2b5769-bad0-4fa7-b19f-a33478f2d87f" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request>{
+	"year": 2016,
+	"month": 9,
+	"day": 1,
+	"taskId": "1111",
+	"startTime": "10:30"
+}</con:request><con:originalUri>http://localhost/timelogger/workmonths/workdays/tasks/delete</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="73e7a782-59d0-47aa-b33f-60cd93cef277" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="3dea189c-c722-406e-876d-66ab0dd2ea2d" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.taskId == "1111"
+assert slurperresponse.startTime.hour == 10
+assert slurperresponse.startTime.minute == 30
+assert slurperresponse.endTime.hour == 10
+assert slurperresponse.endTime.minute == 45
+
+assert slurperresponse.comment == ""</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="listTasks 1" id="04ea939a-755d-46ee-955c-1eb3464e6f38"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths/2016/9/1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="listTasks" id="7c251b51-10c5-4301-ab0a-87a559071f04" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="22f16ad1-30d6-4712-b870-74ab1a22f062" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="9de308ea-6668-47e0-9896-b0a05b110c7e" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.size == 2
+assert slurperresponse.get(0).taskId == "1234"
+assert slurperresponse.get(0).startTime.hour == 8
+assert slurperresponse.get(0).startTime.minute == 30
+assert slurperresponse.get(0).endTime.hour == 10
+assert slurperresponse.get(0).endTime.minute == 30
+assert slurperresponse.get(0).comment == ""
+
+assert slurperresponse.get(1).taskId == "2222"
+assert slurperresponse.get(1).startTime.hour == 10
+assert slurperresponse.get(1).startTime.minute == 45
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="isEverythingCreated 1" id="722a0df4-c68b-49f8-82e8-ee827fa7c508"><con:settings/><con:config service="TimeLoggerTest" methodName="get" resourcePath="/timelogger/workmonths" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="isEverythingCreated" id="f7b46644-38e7-4234-9901-0b15eb37beb6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="d69a0a2d-1402-4bd4-9a9c-2fceda345830" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="7cb7a089-8fc7-4276-b866-a3815c265d3b" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def responseContent = messageExchange.response.responseContent
+slurperresponse = new JsonSlurper().parseText(responseContent)
+
+assert slurperresponse.date.get(0) == "2016-09"
+assert slurperresponse.get(0).days.size == 2
+assert slurperresponse.get(0).days.get(0).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(0).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(0).actualDay.dayOfMonth == 1
+assert slurperresponse.get(0).days.get(0).tasks.size == 2
+
+assert slurperresponse.get(0).days.get(1).actualDay.year == 2016
+assert slurperresponse.get(0).days.get(1).actualDay.monthValue == 9
+assert slurperresponse.get(0).days.get(1).actualDay.dayOfMonth == 8
+assert slurperresponse.get(0).days.get(1).tasks.size == 1</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="clear" id="b92d04e8-164a-4a44-bab4-8dc9485ec9f5"><con:settings/><con:config service="TimeLoggerTest" methodName="put" resourcePath="/timelogger/workmonths/deleteall" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="clear" id="3ddf20d0-f482-4caa-abe6-eb9f33e7cfe0" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>${#TestSuite#endpoint}</con:endpoint><con:request/><con:originalUri>http://localhost/timelogger/workmonths/deleteall</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="72f0623d-b445-42ab-9377-bf57bb2dad95" name="Valid HTTP Status Codes"><con:configuration><codes>204</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>endpoint</con:name><con:value>http://localhost:8080</con:value></con:property></con:properties></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
