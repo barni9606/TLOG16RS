@@ -21,7 +21,7 @@ scmVersion {
 project.version = scmVersion.version
 
 if (!hasProperty('mainClass')) {
-    ext.mainClass = 'com.rozsalovasz.tlog16rs.TLOG16RSApplication'
+    ext.mainClass = 'com.schenkbarnabas.tlog16rs.TLOG16RSApplication'
 }
 
 project.ext {
@@ -65,7 +65,7 @@ task createDockerfile(type: Dockerfile) {
     dependsOn = [':distTar']
     destFile = project.file('build/Dockerfile')
     from "frolvlad/alpine-oraclejdk8:slim"
-    maintainer 'Andras Gazdag "agazdag@precognox.com"'
+    maintainer 'Barnabas Schenk "bschenk@precognox.com"'
 
     def appFolder = "/"
 

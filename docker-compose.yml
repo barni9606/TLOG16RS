@@ -11,6 +11,7 @@ services:
     - DB_USER=timelogger
     - DB_PASS=633Ym2aZ5b9Wtzh4EJc4pANx
     - DB_URL=jdbc:mariadb://mariadb:3306/timelogger
+    - DB_DRIVER=org.mariadb.jdbc.Driver
   mariadb:
     image: mariadb:5.5
     container_name: mariadb
