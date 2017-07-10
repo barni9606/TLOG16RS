@@ -13,6 +13,7 @@ import liquibase.Liquibase;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.LiquibaseException;
 import liquibase.resource.ClassLoaderResourceAccessor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,10 +22,10 @@ import java.sql.SQLException;
 /**
  * Created by bschenk on 7/5/17.
  */
+@Slf4j
 public class CreateDatabase {
     private DataSourceConfig dataSourceConfig;
     private ServerConfig serverConfig;
-    private EbeanServer ebeanServer;
 
     public CreateDatabase(TLOG16RSConfiguration tlog16RSConfiguration) {
         initDataSourceConfig(tlog16RSConfiguration);
@@ -32,9 +33,9 @@ public class CreateDatabase {
         try {
             updateSchema(tlog16RSConfiguration);
         } catch (SQLException | LiquibaseException e) {
-            e.printStackTrace();
+            log.error(e.getClass().toString() + ": " +  e.getMessage());
         }
-        ebeanServer = EbeanServerFactory.create(serverConfig);
+        EbeanServerFactory.create(serverConfig);
     }
 
     private void initDataSourceConfig(TLOG16RSConfiguration tlog16RSConfiguration){
@@ -60,13 +61,13 @@ public class CreateDatabase {
 
     }
     private void updateSchema(TLOG16RSConfiguration tlog16RSConfiguration) throws SQLException, LiquibaseException {
-        Connection connection = getConnection();
+        Connection connection = getConnection(tlog16RSConfiguration);
         Liquibase liquibase = new Liquibase("migrations.xml", new ClassLoaderResourceAccessor(), new JdbcConnection(connection));
         liquibase.update("");
     }
 
-    private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(System.getProperty("dbUrl", "jdbc:mariadb://127.0.0.1:9001/timelogger"),
-                System.getProperty("dbUsername","timelogger"), System.getProperty("dbPassword", "633Ym2aZ5b9Wtzh4EJc4pANx"));
+    private Connection getConnection(TLOG16RSConfiguration tlog16RSConfiguration) throws SQLException {
+        return DriverManager.getConnection(tlog16RSConfiguration.getDbUrl(),
+                tlog16RSConfiguration.getDbUsername(), tlog16RSConfiguration.getDbPassword());
     }
 }

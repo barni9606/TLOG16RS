@@ -165,9 +165,7 @@ public class TLOG16RSResource {
     @Path("/workmonths/deleteall")
     @PUT
     public void deleteAll(){
-        TimeLogger timeLogger = service.getTimeLogger();
         Ebean.deleteAll(Ebean.find(TimeLogger.class).findList());
-        timeLogger = new TimeLogger();
     }
 
 }

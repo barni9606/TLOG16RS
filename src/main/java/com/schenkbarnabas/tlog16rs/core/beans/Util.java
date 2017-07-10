@@ -3,6 +3,7 @@ package com.schenkbarnabas.tlog16rs.core.beans;
 import com.schenkbarnabas.tlog16rs.entities.Task;
 import com.schenkbarnabas.tlog16rs.core.exceptions.EmptyTimeFieldException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NotExpectedTimeOrderException;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -13,7 +14,12 @@ import java.util.List;
  * Utility class for timelogger project
  * Created by bschenk on 6/27/17.
  */
+@Slf4j
 public class Util {
+
+    private Util() {
+    }
+
     /**
      * The difference between startTime and endTime should be a multiple of 15 minutes
      * This method calculates and returns the endTime rounded
@@ -23,7 +29,7 @@ public class Util {
      */
     public static LocalTime roundToMultipleQuarterHour(LocalTime startTime, LocalTime endTime){
         int min = (endTime.toSecondOfDay() - startTime.toSecondOfDay()) / 60;
-        return endTime.minusMinutes(min).plusMinutes(Math.round(min / 15.0f) * 15);
+        return endTime.minusMinutes(min).plusMinutes(Math.round(min / 15.0d) * 15);
     }
 
     /**
@@ -73,7 +79,7 @@ public class Util {
                       && !task.getStartTime().equals( t.getStartTime())
                         ;
             } catch (EmptyTimeFieldException e) {
-                e.printStackTrace();
+                log.error(e.getClass().toString() + ": " +  e.getMessage());
                 return false;
             }
         });

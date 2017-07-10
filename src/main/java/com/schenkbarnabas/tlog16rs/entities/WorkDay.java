@@ -9,7 +9,6 @@ import com.schenkbarnabas.tlog16rs.core.exceptions.NotExpectedTimeOrderException
 
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.OneToMany;
@@ -217,7 +216,7 @@ public class WorkDay {
      * @throws EmptyTimeFieldException the last task's end time shouldn't be null
      */
     public LocalTime endTimeOfTheLastTask() throws EmptyTimeFieldException {
-        if(tasks.size() == 0){
+        if(tasks.isEmpty()){
             return null;
         }
         return tasks.get(tasks.size() - 1).getEndTime();

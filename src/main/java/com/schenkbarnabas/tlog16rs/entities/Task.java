@@ -7,7 +7,6 @@ import com.schenkbarnabas.tlog16rs.core.exceptions.NoTaskIdException;
 import com.schenkbarnabas.tlog16rs.core.exceptions.NotExpectedTimeOrderException;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 
@@ -155,6 +154,7 @@ public class Task {
      *
      * @param taskId determines if the ID given is valid or not
      * @return true if valid, false if invalid
+     * @deprecated Replaced by {@link #isValidRedmineTaskId(String)} and {@link #isValidLTTaskId(String)}
      */
     @Deprecated
     public boolean isValidTask(String taskId){

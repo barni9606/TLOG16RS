@@ -11,10 +11,9 @@ import java.util.List;
  * Created by bschenk on 6/27/17.
  */
 @Entity
+@lombok.NoArgsConstructor
 public class TimeLogger {
 
-    public TimeLogger() {
-    }
 
     @Id
     @GeneratedValue
