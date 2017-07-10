@@ -1,5 +1,5 @@
 dbUrl: {{ .Env.DB_URL }}
 dbConfigName: {{ .Env.DB_CONFIG_NAME }}
-dbUsername: {{ .Env.DB_USERNAME }}
-dbPassword: {{ .Env.DB_PASSWORD }}
+dbUsername: {{ .Env.DB_USER }}
+dbPassword: {{ .Env.DB_PASS }}
 dbDriver: {{ .Env.DB_DRIVER }}
