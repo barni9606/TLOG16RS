@@ -11,13 +11,29 @@ import com.schenkbarnabas.tlog16rs.resources.services.TLOG16RSService;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.ws.rs.*;
+import javax.ws.rs.container.ContainerRequestContext;
+import javax.ws.rs.container.ContainerResponseContext;
+import javax.ws.rs.container.ContainerResponseFilter;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.ext.Provider;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
 @Slf4j
+@Provider
 @Path("/timelogger")
-public class TLOG16RSResource {
+public class TLOG16RSResource implements ContainerResponseFilter {
+
+    @Override
+    public void filter(final ContainerRequestContext requestContext,
+                       final ContainerResponseContext cres) throws IOException {
+        cres.getHeaders().add("Access-Control-Allow-Origin", "*");
+        cres.getHeaders().add("Access-Control-Allow-Headers", "origin, content-type, accept, authorization");
+        cres.getHeaders().add("Access-Control-Allow-Credentials", "true");
+        cres.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
+        cres.getHeaders().add("Access-Control-Max-Age", "1209600");
+    }
 
     private TLOG16RSService service = new TLOG16RSService();
 
@@ -53,10 +69,29 @@ public class TLOG16RSResource {
         WorkDay workDay = null;
         try {
             workDay = new WorkDay(Math.round(day.getRequiredHours() * 60), LocalDate.of(day.getYear(), day.getMonth(), day.getDay()));
-            service.addDay(timeLogger, workDay);
+            service.addDay(timeLogger, workDay, false);
 
-        } catch (NegativeMinutesOfWorkException | WeekendNotEnabledException | NotNewDateException
+        } catch (NegativeMinutesOfWorkException | NotNewDateException
                 | NotTheSameMonthException | FutureWorkException e) {
+            log.error(e.getClass().toString() + ": " +  e.getMessage());
+        } catch (WeekendNotEnabledException e) {
+            throw new WeekendNotEnabledRestException("Weekend is not enabled! Please use another endpoint.");
+        }
+        return workDay;
+    }
+
+    @Path("/workmonths/workdays/weekend")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public WorkDay addNewWorkDayWeekend(WorkDayRB day){
+        TimeLogger timeLogger = service.getTimeLogger();
+        WorkDay workDay = null;
+        try {
+            workDay = new WorkDay(Math.round(day.getRequiredHours() * 60), LocalDate.of(day.getYear(), day.getMonth(), day.getDay()));
+            service.addDay(timeLogger, workDay, true);
+
+        } catch (NegativeMinutesOfWorkException | NotNewDateException | NotTheSameMonthException | FutureWorkException | WeekendNotEnabledException e) {
             log.error(e.getClass().toString() + ": " +  e.getMessage());
         }
         return workDay;

@@ -22,16 +22,16 @@ import java.util.List;
 @Slf4j
 public class TLOG16RSService {
 
-    public void addDay(TimeLogger timeLogger, WorkDay workDay) throws WeekendNotEnabledException, NotTheSameMonthException, NotNewDateException {
+    public void addDay(TimeLogger timeLogger, WorkDay workDay, boolean weekendEnabled) throws WeekendNotEnabledException, NotTheSameMonthException, NotNewDateException {
         List<WorkMonth> months = timeLogger.getMonths();
         WorkMonth workMonth;
         if(months.contains(new WorkMonth(workDay.getActualDay().getYear(), workDay.getActualDay().getMonthValue()))){
             workMonth = months.stream().filter(month ->
                     month.equals(new WorkMonth(workDay.getActualDay().getYear(), workDay.getActualDay().getMonthValue()))).findFirst().orElse(null);
-            workMonth.addWorkDay(workDay);
+            workMonth.addWorkDay(workDay, weekendEnabled);
         } else {
             workMonth = new WorkMonth(workDay.getActualDay().getYear(), workDay.getActualDay().getMonthValue());
-            workMonth.addWorkDay(workDay);
+            workMonth.addWorkDay(workDay, weekendEnabled);
             try {
                 addMonth(timeLogger, workMonth);
             } catch (NotNewMonthException | EmptyTimeFieldException e) {
@@ -60,7 +60,7 @@ public class TLOG16RSService {
                 } else {
                     workDay = new WorkDay(localDate);
                     workDay.addTask(task);
-                    addDay(timeLogger, workDay);
+                    addDay(timeLogger, workDay, false);
                 }
                 calculateStatistics(timeLogger, workDay, workMonth);
             } catch (NegativeMinutesOfWorkException | NotTheSameMonthException | NotNewDateException e) {
@@ -71,7 +71,7 @@ public class TLOG16RSService {
             try {
                 WorkDay workDay = new WorkDay(localDate);
                 workDay.addTask(task);
-                addDay(timeLogger, workDay);
+                addDay(timeLogger, workDay, false);
                 workDay.getExtraMinPerDay();
             } catch (NegativeMinutesOfWorkException | NotTheSameMonthException | NotNewDateException e) {
                 log.error(e.getClass().toString() + ": " +  e.getMessage());
@@ -113,7 +113,7 @@ public class TLOG16RSService {
         } else {
             workDay = d;
             try {
-                addDay(timeLogger, workDay);
+                addDay(timeLogger, workDay, false);
             } catch (WeekendNotEnabledException | NotTheSameMonthException | NotNewDateException e) {
                 log.error(e.getClass().toString() + ": " +  e.getMessage());
             }
