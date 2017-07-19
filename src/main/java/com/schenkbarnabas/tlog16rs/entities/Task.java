@@ -258,7 +258,10 @@ public class Task {
      * @param startTime startTime as String
      * @throws NotExpectedTimeOrderException the startTime must be before the endTime
      */
-    public void setStartTime(String startTime) throws NotExpectedTimeOrderException {
+    public void setStartTime(String startTime) throws NotExpectedTimeOrderException, EmptyTimeFieldException {
+        if(startTime == null){
+            throw new EmptyTimeFieldException();
+        }
         setStartTime(LocalTime.parse(startTime, DateTimeFormatter.ofPattern("H:m")));
     }
 
@@ -293,7 +296,10 @@ public class Task {
      * @param endTime startTime as String
      * @throws NotExpectedTimeOrderException the endTime must be after startTime
      */
-    public void setEndTime(String endTime) throws NotExpectedTimeOrderException {
+    public void setEndTime(String endTime) throws NotExpectedTimeOrderException, EmptyTimeFieldException {
+        if(endTime == null){
+            throw new EmptyTimeFieldException();
+        }
         setEndTime(LocalTime.parse(endTime, DateTimeFormatter.ofPattern("H:m")));
     }
 

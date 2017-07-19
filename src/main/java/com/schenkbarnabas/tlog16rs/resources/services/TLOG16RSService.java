@@ -148,7 +148,7 @@ public class TLOG16RSService {
         if(workDay.getTasks().contains(tempTask)){
             task = workDay.getTasks().stream().filter(t -> t.equals(tempTask)).findFirst().orElse(null);
             task.setTaskId(modifyTaskRB.getNewTaskId());
-            try {
+
                 if(LocalTime.parse(modifyTaskRB.getNewStartTime(), DateTimeFormatter.ofPattern("H:m")).isAfter(task.getEndTime())){
                     task.setEndTime(modifyTaskRB.getNewEndTime());
                     task.setStartTime(modifyTaskRB.getNewStartTime());
@@ -157,9 +157,7 @@ public class TLOG16RSService {
                     task.setEndTime(modifyTaskRB.getNewEndTime());
 
                 }
-            } catch (EmptyTimeFieldException e) {
-                log.error(e.getClass().toString() + ": " +  e.getMessage());
-            }
+
             task.setComment(modifyTaskRB.getNewComment());
         } else {
             task = new Task(modifyTaskRB.getNewTaskId());
